@@ -1,0 +1,251 @@
+%=============================================================================
+%=============================================================================
+
+\chapter{PumpKin Algorithm}
+\label{sec_6}
+
+In this section we briefly describe the algorithm proposed by Lehmann~\cite{Lehman2003} and used in the package PumpKin. For a more detailed description and discussion about the algorithm we refer to~\cite{Lehman2003}.
+
+%=============================================================================
+
+\section{Basic Definitions}
+\label{sec_6_1}
+We assume the chemical reactions $R_j$, $j = 1, \ldots, n_R$, involving species $S_i$, $i = 1,\ldots, n_S$. Beside of $R_j$, it is assumed that the stoichiometric coefficients $s_{ij}$, which represent the number of molecules of species $S_i$ produced (or negative number of molecules of $S_i$ consumed) by reaction $R_j$, are given. For simplicity, PumpKin assumes only unidirectional reactions and in case of reversible reactions, it is the responsibility of the user to split them into forward and backward steps, incorporating external sources and sinks as ``pseudo-reactions''.
+
+We assume that the user has already integrated the chemical model, following the temporal evolution of species $S_i$ during the time interval $\left[0, T\right]$ which was divided, in general non-uniformly, into $n_T$ parts. That is, for every species $S_i$ and reaction $R_j$ we know the concentrations $c_i(t_l)$ and the reaction rates $r_j(t_l)$, where $l = 1,\ldots,n_T$.
+
+For a given time interval $[t_0,t_{end}]\subseteq[0,T]$  we can calculate       
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{equation}
+\Delta c_i = c_i(t_{end} )- c_i(t_0), \quad i = 1,\ldots, n_S\,,
+\label{2.1.0}
+\end{equation}   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+c_i = \frac{1}{\Delta t}\cdot \int_{t_0}^{t_{end}} c_i(t)\ \textrm{d}t, \quad i = 1,\ldots, n_S\,,
+\label{2.1.1}
+\end{equation} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+r_j = \frac{1}{\Delta t}\cdot \int_{t_0}^{t_{end}} r_j(t)\ \textrm{d}t, \quad j = 1,\ldots, n_R\,,
+\label{2.1.2}
+\end{equation}   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+where $\Delta t = t_{end} - t_0$, $\Delta c_i$ and $c_i$ are, respectively, the change of the concentration and the mean concentration of species $S_i$ in the time window $[t_0,t_{end}]$; $r_j$ is the mean rate of the reaction $R_j$ in the time interval $[t_0,t_{end}]$. In the rest of this paper we will use \textit{rate} for $r_j$, omitting the attribute \textit{mean}. In this work we assume that $c_i$ has units of [molecules cm$^{-3}$] and that $r_j$ has units of [molecules cm$^{-3}$ s$^{-1}$].
+
+Ideally, we should have conservation of the concentration changes $\Delta c_i$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+\Delta c_i=\sum_{j = 1}^{n_R}s_{ij}\cdot r_j\cdot \Delta t, \quad\textrm{for every }i = 1,\ldots, n_S\,,
+\label{2.1.3}
+\end{equation}   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+but, due to numerical inaccuracies in the kinetic solver and to the finite time steps, the conservation (\ref{2.1.3}) will usually be violated within the user's input. We take as the definition of $\Delta c_i$ the formula (\ref{2.1.3}), instead of (\ref{2.1.0}). 
+
+One of the key questions that we want to answer is: \textit{How, i.e., by the interaction of which reactions, are certain species produced or destroyed?} Obviously, we can determine the reactions that produce (or destroy) the species directly. But if such a reaction consumes (or produces) another specie whose chemical lifetime is shorter than the time scale of interest, then it is necessary to follow the chemical 'fate' of that species. This leads to the idea of forming \textit{pathways}, i.e. reaction sequences, that produce (or destroy) a chemical species of interest. 
+
+Let us denote by $P_k$, where $k = 1,\ldots, n_P$, the set of pathways. The given pathway $P_k$ is described by the set $\left\{x_{jk}, m_{ik}, f_k \right\}$, where 
+\begin{itemize}
+\item {$x_{jk}$ is the multiplicity of reaction $R_j$ in the pathway $P_k$ (zero if $R_j$ does not occur in $P_k$), $j = 1,\ldots, n_R$, $k = 1,\ldots, n_P$,}
+\item {$m_{ik}$ is the positive (negative) number of molecules of $S_i$ produced (consumed) by the pathway $P_k$, $i = 1,\ldots, n_S$, $k = 1,\ldots, n_P$,}
+\item {$f_k$ is the rate of pathway $P_k$, $k = 1,\ldots, n_P$.}
+\end{itemize}
+
+Then, by the definition of $x_{jk}$ and the stoichiometric coefficients $s_{ij}$, we have
+\begin{equation}
+m_{ik} =\sum_{j = 1}^{n_R}s_{ij}\cdot x_{jk}\,.
+\label{2.2.0}
+\end{equation}   
+If we multiply both sides of (\ref{2.2.0}) by $f_k$, we get
+\begin{equation}
+m_{ik}\cdot f_k =\sum_{j = 1}^{n_R}s_{ij}\cdot (x_{jk}\cdot f_k)\,,
+\label{2.2.1}
+\end{equation}
+which illustrates that $x_{jk}\cdot f_k$ is the portion of the rate $r_j$ of reaction $R_j$ associated with the pathway $P_k$.
+
+We take into account the effects of deleted pathways with small rates (in next section). For this, we introduce the additional variables $\tilde{r}_j$, which represent the part of the rate of reaction $R_j$ associated with the deleted pathways, and $\tilde{p}_i$ (and $\tilde{d}_i$) representing the rate of the production (and destruction) of species $S_i$ by deleted pathways. In this case, the rate of each reaction will be totally distributed to pathways, including the effect of the deleted ones
+\begin{equation}
+r_j = \tilde{r}_j + \sum_{k = 1}^{n_P} x_{jk}\cdot f_k\,.
+\label{2.2.2}
+\end{equation}
+On the other hand, the total rate of production $p_i$ and destruction $d_i$ of a species $S_i$ by all pathways, including the effect of deleted pathways, are
+\begin{equation}
+p_i = \tilde{p}_i + \sum_{\{k\ |\ m_{ik}>0\}} m_{ik}\cdot f_k\,,
+\label{2.2.3}
+\end{equation}
+\begin{equation}
+d_i = \tilde{d}_i + \sum_{\{k\ |\ m_{ik}<0\}} m_{ik}\cdot f_k\,.
+\label{2.2.4}
+\end{equation}
+Although $p_i$, $d_i$, $\tilde{p}_i$ and $\tilde{d}_i$ are changed at different steps inside the algorithm, we always ensure that we don't violate the balance between the production, consumption and concentration change of a species (\ref{2.1.3}) and the following holds at any point:
+\begin{equation}
+\Delta c_i =  (p_i - d_i)\cdot\Delta t\,.
+\label{2.2.5}
+\end{equation}
+The mean rate $\delta_i$ of the concentration change of species $S_i$ is defined as $\Delta c_i/  \Delta t$. Besides, we also need the auxiliary variable $D_i$ defined as
+\begin{equation}
+D_i = \max\{p_i,d_i\}= \left\{\begin{array}{ccc}p_i =  & d_i + \delta_i & \textrm{if }\Delta c_i \geqslant 0\,, \\d_i =  & p_i + |\delta_i| & \textrm{if }\Delta c_i < 0\,. \end{array}\right.
+\label{2.2.6}
+\end{equation}
+
+A reaction sequence $P' _k$ is called \textit{sub-pathway} of a pathway $P_l$ if all intermediate species, corresponding to the branching-points, are at steady state and the set of all reactions from $P' _k$ is a subset of the set of reactions of $P_l$, i.e.
+\begin{equation}
+R(P'_k)\subset R(P_l)\,, 
+\label{2.2.7}
+\end{equation}
+where $R(P_l) := \{j\in \{1,\ldots,n_R\}|x_{jl}\neq 0\}$. A pathway is called \textit{elementary} if it does not contain sub-pathways (condition(C3$'$) from~\cite{Sch2002}).
+
+%=============================================================================
+
+\section{Description of the Algorithm}
+\label{sec2c}
+Algorithm \ref{PumpKin_alg} summarizes in pseudo-code the steps in the \pump{} code.
+
+\begin{algorithm}
+\caption{\pump{} algorithm.}\label{PumpKin_alg}
+\begin{algorithmic}[1]
+\Begin
+\State read input files \Comment{Section \ref{sec_3_1}}
+\State initialize pathways := individual pathways \Comment{Section \ref{sec2c1}}
+\State chose branching-point $S_b$ \Comment{Section \ref{sec2c2}}
+\Repeat
+
+	\State merge pathways producing $S_b$ with pathways consuming $S_b$ \Comment{Section \ref{sec2c3}}
+	\State delete pathways with a rate less than $f_{min}$ \Comment{Section \ref{sec2c4}}
+	\State determine and split sub-pathways \Comment{Section \ref{sec2c5}}
+\Until {$the new branching-point $ S_b $ is found$  }
+\State ouput \Comment{Section \ref{sec2c5}}
+\End.
+\end{algorithmic}
+\end{algorithm}
+
+%=============================================================================
+
+\subsection{Initialization.}
+\label{sec2c1}
+The algorithm starts with a list of pathways, each containing only one reaction:
+\begin{equation}
+x_{jk} = \left\{\begin{array}{cc}1 & \textrm{if } j=k\,, \\0 & \textrm{else}\,, \end{array}\right.\quad  j,k = 1, \ldots , n_R\,. 
+\label{2.4.0}
+\end{equation}
+To each pathway we assign the rate of the corresponding reaction, i.e. $f_k = r_k$, $k = 1,\ldots, n_R$. The book-keeping variables $\tilde{r}_j$, $\tilde{p}_i$ and $\tilde{d}_i$ are set equal to zero.
+
+%=============================================================================
+
+\subsection{Branching-Points.}
+\label{sec2c2}
+Depending on the time scale of interest and the lifetime of species of interest, the user might need to exclude certain species from the list of branching points. For this, user can define lifetime threshold $\tau_{min}$.  In this case the species with lifetime greater than $\tau_{min}$ are considered as long-lived species and not used as branching points. Then, for every species $S_i$ with a lifetime shorter than $\tau_{min}$ and that has not been a branching point yet, we calculate its lifetime $\tau_i$ with respect to the pathways constructed so far:
+\begin{equation}
+\tau_i = \frac{c_i}{d_i}\,,
+\label{2.4.1}
+\end{equation}
+with $c_i$ from (\ref{2.1.1}) and $d_i$ from (\ref{2.2.4}). As the next branching point we choose the species with the shortest lifetime $\tau_i$.
+
+%=============================================================================
+
+\subsection{Merging Pathways.}
+\label{sec2c3}
+Let us assume that we are given branching-point species $S_b$ and that so far we have constructed pathways $P_k$, $k=1,\ldots,n_P$.  Then we perform the following steps:
+\begin{itemize}
+\item {Every pathway $P_k$ producing the species $S_b$ is connected with each pathway $P_l$ consuming $S_b$. Let us denote the resulting pathway by $P_n$. The number of molecules $m_{in}$ of $S_i$ and the corresponding multiplicities $x_{jn}$ of the reactions $R_j$ in the pathway $P_n$ can be calculated as
+\begin{equation}
+m_{in} = m_{ik}\cdot|m_{bl}| + m_{il}\cdot m_{bk} \,, \quad i = 1,\ldots, n_S\,,
+\label{2.5.0}
+\end{equation}
+\begin{equation}
+x_{jn} = x_{jk}\cdot|m_{bl}| + x_{jl}\cdot m_{bk} \,, \quad j = 1,\ldots, n_R\,.
+\label{2.5.1}
+\end{equation}
+Equation (\ref{2.5.0}) ensures that the constructed pathway $P_n$ fully recycles $S_b$, that is, it has no net production or consumption of $S_b$. 
+\\ The rate $f_n$ of the new pathway $P_n$ is calculated using the branching probabilities discussed in~\cite{Lehman2003} and reads
+\begin{equation}
+f_n = \frac{f_k\cdot f_l}{D_b}\,.
+\label{2.5.2}
+\end{equation}
+}
+\item {If $\Delta c_b\neq 0$, we store the contribution of $P_k$ to $\Delta c_b$ by introducing a new pathway $P_n$ that is identical to $P_k$, but has a rate
+\begin{equation}
+f_n = \left\{\begin{array}{cc} f_k\cdot \delta_b / D_b\,, & \mathrm{if}\quad \Delta c_b > 0 \\ f_k\cdot |\delta_b| / D_b\,, & \mathrm{if}\quad \Delta c_b <0 \end{array}\right.\,.
+\label{2.5.3}
+\end{equation}
+}
+\item {We remove all the pathways that have been connected with all partners. Pathways that neither produce nor consume $S_b$ are not affected.}
+\end{itemize}
+
+%=============================================================================
+
+\subsection{Deletion of Insignificant Pathways.}
+\label{sec2c4}
+Even when the total number of reactions is relatively low, \pump{} may generate an excessive number of pathways.  To avoid this ``combinatorial explosion'',  we delete a newly formed pathway $P_n$ if its rate $f_n$ is less than the user-specified threshold $f_{min}$.  To keep track of the contribution from the deleted pathways, we update equations (\ref{2.2.2})-(\ref{2.2.4}) in the following way
+\begin{equation}
+\tilde{r}_j := \tilde{r}_j + x_{jn}\cdot f_n\,,  \quad j = 1,\ldots, n_R\,,
+\label{2.6.0}
+\end{equation}
+\begin{equation}
+\tilde{p}_i := \tilde{p}_i + m_{in}\cdot f_n\,, \quad \textrm{if } m_{in} >0, \quad i = 1,\ldots, n_S\,,
+\label{2.6.1}
+\end{equation}
+\begin{equation}
+\tilde{d}_i := \tilde{d}_i + m_{in}\cdot f_n\,, \quad \textrm{if } m_{in} <0, \quad i = 1,\ldots, n_S\,,
+\label{2.6.2}
+\end{equation}
+ where $x_{jn}$ is the multiplicity of reaction $R_j$ in $P_n$, and $m_{in}$ is the number of molecules of $S_i$ produced by $P_n$. More details are discussed in~\cite{Lehman2003}.
+  
+%=============================================================================
+
+\subsection{Sub-Pathways.}
+\label{sec2c5}
+In section \ref{sec2c4} we discussed the procedure to limit the growth of total number of pathways in our algorithm.  On the other hand, when two pathways are connected, it may happen that the resulting reaction sequence in unnecessarily complicated, i.e. it contains other pathways as sub-pathways. 
+
+As described in section \ref{sec2c4}, we often eliminate ``insignificant'' pathways; so it is not enough to check whether other pathways constructed so far are sub-pathways of $P_n$.  Instead, for a given pathway $P_n$ we determine all elementary sub-pathways $P'_k$, $k=1,\ldots,n_{P'}$, using the algorithm by Schuster and Schuster~\cite{Sch1993, Lehman2003}. This method has a limitation, namely, it requires that all intermediate species, i.e. branching-points, are at steady state
+\begin{equation}
+\sum_{j=1}^{n_R} x_{jn}\cdot s_{ij} = 0 \, \textrm{for all } i\textrm{ for which } S_i \textrm{ has been a branching point}\,.
+\label{2.7.0}
+\end{equation}
+The condition (\ref{2.7.0}) can be enforced by adding ``pseudo-reactions'' to the pathway $P_n$, with multiplicity $|m_{in}|$ for all previous branching-points $S_i$,
+\begin{equation}
+S_i \rightarrow\ldots \quad \textrm{if } m_{in}>0 \,,
+\label{2.7.1}
+\end{equation}
+\begin{equation}
+S_i \leftarrow\ldots \quad \textrm{if } m_{in}<0\,.
+\label{2.7.1.1}
+\end{equation}
+Once we have the sub-pathways $P'_k$, $k=1,\ldots,n_{P'}$, of a pathway $P_n$, then we represent $P_n$ as a linear combination (with non-negative wights $w_k$) of these sub pathways, i.e.
+\begin{equation}
+x_{jn}=\sum_{k=1}^{n_P'} w_k\cdot x'_{jk}, \quad j =1,\ldots, n_R\,,
+\label{2.7.2}
+\end{equation}
+where $x_{jn}$ and $x'_{jk}$  are the multiplicities of reaction $R_j$ in pathway $P_n$ and subpathway $P'_k$, respectively. Such representation is justified in \cite{Sch2002}. The rate $f_n$ of $P_n$ will be distributed to the sub-pathways according to 
+\begin{equation}
+f'_k = w_k \cdot f_n, \quad k=1,\ldots , n_{P'}\,.
+\label{2.7.3}
+\end{equation}
+The equation (\ref{2.7.2}) leads to a linear optimization problem~\cite{Lehman2003}, which we solve by the simplex method employing the GPLK package~\cite{Glpk}. Then, we search for the sub-pathways $P'_k$, $k=1,\ldots , n_{P'}$, in the list of pathways constructed so far by the main part of the algorithm. If $P'_k$ is contained in that list, then we add $f'_k$ to its rate, otherwise, we add $P'_k$ as a new entry with rate $f'_k$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

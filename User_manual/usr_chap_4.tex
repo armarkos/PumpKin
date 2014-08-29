@@ -1,0 +1,81 @@
+%=============================================================================
+%=============================================================================
+
+\chapter{Examples}
+\label{chap_4}
+
+\pump{} is distributed with two sets of input files:
+\begin{display}
+\begin{verbatim}
+pumpkin-X.Y/src/Examples/Input_10
+pumpkin-X.Y/src/Examples/Input_20
+\end{verbatim}
+\end{display}
+
+Both examples are the outputs of the zero-dimensional plasma kinetic solver ZDPlasKin. We use a zero-dimensional model to describe the dynamics of species under a constant electric field. The following system of ordinary differential equations (ODEs) is used to describe the interaction between the species
+\begin{equation}
+\label{eq:kinet}
+\frac{d[n_i]}{dt}=S_i\,,
+\end{equation}
+where the source term $S_i$  is the total production and destruction rate of species $i$ in various processes. 
+The adapted version of the kinetic file for N$_2$-O$_2$ mixtures (dry air) from ZDPlasKin~\cite{Sergey2008,Flitti2009} is used, which consists of 650 reactions and 53 species from the table \ref{tab:Species-considered}. 
+
+A complete list of plasma chemical precesses in N$_2$-O$_2$ mixtures is taken mainly from~\cite{Capitelli2000/book}. Transport parameters and constant rates for electron-neutral interactions are calculated using 
+the BOLSIG+ solver built-in into the ZDPlasKin. As initial value of the electron density we use $n_e(0) = $ $4.0\dexp{13}\units{cm^{-3}}$. 
+
+The list of species and reactions was automatically converted into a system of ordinary differential equations (\ref{eq:kinet}) and solved numerically using the ZDPlasKin tool. The user can visualize the results of ZDPlasKin using the open-source software QtPlaskin~\cite{Qtplaskin}.
+
+\begin{table}
+\centering
+\caption{\label{tab:Species-considered}Species considered in the model}
+\begin{tabular}{l}
+\hline 
+\tabucline[1.5pt]{-}Ground neutrals \tabularnewline
+\hline 
+N, N$_{2}$, O, O$_{2}$, O$_{3}$\tabularnewline
+NO, NO$_{2}$, NO$_{3}$\tabularnewline
+N$_{2}$O, N$_{2}$O$_{5}$\tabularnewline
+\hline 
+\tabucline[1.5pt]{-}Positive ions \tabularnewline
+\hline 
+N$^{+}$, N$_{2}^{+}$, N$_{3}^{+}$, N$_{4}^{+}$\tabularnewline
+O$^{+}$, O$_{2}^{+}$, O$_{4}^{+}$\tabularnewline
+NO$^{+}$, N$_{2}$O$^{+}$, NO$_{2}^{+}$, O$_{2}^{+}$N$_{2}$\tabularnewline
+\hline 
+\tabucline[1.5pt]{-}Excited neutrals \tabularnewline
+\hline 
+N$_{2}$(A$^{3}$$\Sigma_{\mathrm{u}}^{+}$, B$^{3}\Pi_{\mathrm{g}}$,
+C$^{3}\Pi_{\mathrm{u}}$, a$^{\prime}$$^{1}$$\Sigma_{\mathrm{u}}^{-}$)\tabularnewline
+N($^{2}$D, $^{2}$P), O($^{1}$D, $^{1}$S)\tabularnewline
+O$_{2}$(a$^{1}$$\Delta_{\mathrm{g}}$, b$^{1}$$\Sigma_{\mathrm{g}}^{+}$,
+4.5 eV)\tabularnewline
+O$_{2}$(X$^{3}$, $v$ = 1 - 4), N$_{2}$(X$^{1}$, $v$ = 1 - 8)\tabularnewline
+\hline 
+\tabucline[1.5pt]{-}Negative ions \tabularnewline
+\hline 
+e, O$^{-}$, O$_{2}^{-}$, O$_{3}^{-}$, O$_{4}^{-}$\tabularnewline
+NO$^{-}$, NO$_{2}^{-}$, NO$_{3}^{-}$, N$_{2}^{-}$O\tabularnewline
+\hline 
+\tabucline[1.5pt]{-}\tabularnewline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+%=============================================================================
+%=============================================================================
+
+\chapter{Installation and Execution Instructions}
+\label{chap_2}
+
+%=============================================================================
+
+\section{Installation}
+\label{sec_2_1}
+Before installing \pump{}, the user should have installed the GLPK package. For this we recommend tools like MacPorts (\url{www.macports.org}) or Fink (\url{www.finkproject.org}) for Mac OS X and package management systems for GNU/Linux distributions. The windows user can get installation instructions at (\url{http://winglpk.sourceforge.net}). 
+
+%=============================================================================
+
+\subsection{Unpackaing the Distribution File}
+\label{sec_2_1_1}
+The \pump{} package is distributed in the form of a packed archive (a \textit{tarball}). It is one file named \file{pumpkin-X.Y.tar.gz}, where \file{X} is the major version number and \file{Y} is the minor version number; for example, the archive name might be \file{pumpkin-1.0.tar.gz}. In order to prepare the distribution for installation you should:
+
+\begin{enumerate}
+  \item [1.] {Copy the \pump{} distribution file to a working directory.}
+  \item [2.] {Unpack the distribution file with the following command:
+\begin{display}
+\begin{verbatim}
+$ gzip -d pumpkin-X.Y.tar.gz
+\end{verbatim}
+\end{display}
+After unpacking, the distribution file is automatically renamed to
+   \file{pumpkin-X.Y.tar}.
+}
+  \item [3.] {Unarchive the distribution file with the following command:
+\begin{display}
+\begin{verbatim}
+$ tar -x < pumpkin-X.Y.tar
+\end{verbatim}
+\end{display}
+ It automatically creates the subdirectory \file{pumpkin-X.Y} containing the
+   \pump{} distribution.}
+ \item [4.]  {Alternatively, the user can combine items 2. and 3. using}
+\begin{display}
+\begin{verbatim}
+$ tar -xzf pumpkin-X.Y.tar.gz
+\end{verbatim}
+\end{display}
+\end{enumerate}
+
+%=============================================================================
+
+\subsection{Compiling the Package}
+\label{sec_2_1_2}
+After unpacking and unarchiving the \pump{} distribution you can compile (build) the package. For this, normally, you should just type
+\begin{display}
+\begin{verbatim}
+$ cd pumpkin-X.Y/src
+$ make
+\end{verbatim}
+\end{display}
+Advanced users may want to modify the \code{Makefile} to change compiler or the location of GLPK.
+
+%=============================================================================
+
+\subsection{Execution Instructions}
+\label{sec_2_1_3}
+The user can run \pump{} by typing the following command:
+\begin{display}
+\begin{verbatim}
+$ ./pumpkin [input folder]
+\end{verbatim}
+\end{display}
+where \file{[input folder]} is the location of the input folder. If the user doesn't specify the location of input folder, \pump{} by default will look it in the current folder, i.e. \file{pumpkin-X.Y/src/Input}.
+
+%=============================================================================
+
+\subsection{Running Built-in Examples}
+\label{sec_2_1_4}
+\pump{} is distributed with two example folders which are discussed in section~\ref{chap_4}. Examples are located in the following folders:
+\begin{display}
+\begin{verbatim}
+pumpkin-X.Y/src/Examples/Input_10
+pumpkin-X.Y/src/Examples/Input_20
+\end{verbatim}
+\end{display}
+The user can execute apply \pump{} to the examples by:
+\begin{display}
+\begin{verbatim}
+./pumpkin Examples/Input_10
+\end{verbatim}
+\end{display}
+or by
+\begin{display}
+\begin{verbatim}
+./pumpkin Examples/Input_20
+\end{verbatim}
+\end{display}
+
+%=============================================================================
+
+\subsection{Typical Running Time}
+\label{sec_2_1_5}
+The typical running time of the examples from the section~\ref{sec_2_1_4} is around 30 seconds on the MacBook Pro 15-inch (Mid 2010) with a CPU Intel Core i5 at 2.4 GHz, 4 GB (1067 MHz DDR3) of RAM memory and the operating system Mac OS X 10.9. 
+\\ Generally speaking \pump{} runtime depends on problem size as loading large input files into the computer memory might be time consuming. On the other hand the user's choice of the input parameters discussed in the section~\ref{sec_3_1} will also affect the runtime. For typical use cases we estimate runtime in the order of minutes. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+PumpKin: A tool to find principal pathways in plasma chemical models
+\\Copyright \copyright{} 2014 Aram H Markosyan. 
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+\\This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+\\You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+Permission to use \pump{} under the license GNU GPL (version 2) is hereby granted, provided that proper reference is made in publications reporting results obtained using this software. At present, the preferred way to reference \pump{} is as follows:
+\vfill
+\begin{center}
+A.H. Markosyan, A. Luque, F. J. Gordillo-Vázquez, U. Ebert, \textit{PumpKin: A tool to find principal pathways in plasma chemical models}; \textit{Computer Physics Communications} \textbf{185}, pp. 2697-2702, (2014), \url{doi: 10.1016/j.cpc.2014.05.019} 
+\end{center}
+\vfill
+Point of Contact:	Dr. Aram H. Markosyan
+
+Address: University of Michigan, Electrical Engineering and Computer Science Department, 1301 Beal Ave, Ann Arbor, MI 48109-2122
+\\Email: \href{mailto:aram.math@gmail.com}{aram.math@gmail.com}
+\\Tel: 734-647-4840
+\\Homepage: \url{http://markosyanaram.com}
+
