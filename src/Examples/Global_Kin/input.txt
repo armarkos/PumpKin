@@ -5,5 +5,5 @@ max_bp 				= 0
 tau_lifetime 		= 0.9e-5
 max_path 			= 1500
 f_min 				= 0
-
+global_kin			= 1
 

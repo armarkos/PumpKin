@@ -1,0 +1,584 @@
+E + N2 > N2V + E                                                      
+E + N2 > N2V + E                                                      
+E + N2 > N2V + E                                                      
+E + N2 > N2V + E                                                      
+E + N2 > N2V + E                                                      
+E + N2 > N2V + E                                                      
+E + N2 > N2V + E                                                      
+E + N2 > N2V + E                                                      
+E + N2 > N2* + E                                                      
+E + N2 > N2* + E                                                      
+E + N2 > N2* + E                                                      
+E + N2 > N2*** + E                                                    
+E + N2*** > N2 + E                                                    
+E + N2 > N2** + E                                                     
+E + N2** > N2 + E                                                     
+E + N2 > N + N + E                                                    
+E + N2 > N2^ + E + E                                                  
+E + N2V > N2 + E                                                      
+E + N2V > N2* + E                                                     
+E + N2V > N2^ + E + E                                                 
+E + N2* > N2V + E                                                     
+E + N2* > N2 + E                                                      
+E + N2* > N2^ + E + E                                                 
+E + N2^ > N* + N                                                      
+E + N > N* + E                                                        
+E + N > N* + E                                                        
+E + N > N^ + E + E                                                    
+E + N* > N + E                                                        
+E + N* > N^ + E + E                                                   
+E + O2 > O2 + E                                                       
+E + O2 > O- + O                                                       
+E + O2 > O2V + E                                                      
+E + O2 > O2V + E                                                      
+E + O2 > O2V + E                                                      
+E + O2 > O2V + E                                                      
+E + O2 > O2* + E                                                      
+E + O2 > O2* + E                                                      
+E + O2 > O + O + E                                                    
+E + O2 > O + O + E                                                    
+E + O2 > O2* + E                                                      
+E + O2 > O2* + E                                                      
+E + O2 > O2^ + E + E                                                  
+E + O2 > O + O^ + E + E                                               
+E + O2 + O2 > O2- + O2                                                
+E + O2 + N2 > O2- + N2                                                
+E + O2V > O + O-                                                      
+E + O2V > O2 + E                                                      
+E + O2V > O2* + E                                                     
+E + O2V > O2* + E                                                     
+E + O2V > O + O + E                                                   
+E + O2V > O + O* + E                                                  
+E + O2V > O2^ + E + E                                                 
+E + O2V > O* + O* + E                                                 
+E + O2V > O^ + O + E + E                                              
+E + O2* > O2* + E                                                     
+E + O2* > O- + O                                                      
+E + O2* > O2 + E                                                      
+E + O2* > O + O + E                                                   
+E + O2* > O + O + E                                                   
+E + O2* > O2^ + E + E                                                 
+E + O2* > O + O^ + E + E                                              
+E + O2* + O2 > O2- + O2                                               
+E + O2* + N2 > O2- + N2                                               
+E + O3 > O- + O2                                                      
+E + O3 > O2- + O                                                      
+E + O > O + E                                                         
+E + O > O* + E                                                        
+E + O > O* + E                                                        
+E + O > O^ + E + E                                                    
+E + O^ > O*                                                           
+E + E + O^ > O* + E                                                   
+E + O* > O* + E                                                       
+E + O* > O + E                                                        
+E + O* > O^ + E + E                                                   
+E + O2^ > O + O                                                       
+E + O2^ > O* + O                                                      
+E + H2 > H2^ + E + E                                                  
+E + H2 > H + H + E                                                    
+E + H2^ > H + H                                                       
+E + H2O > H- + OH                                                     
+E + H2O > H2O^ + E + E                                                
+E + H2O > H + OH + E                                                  
+E + H2O > H + OH + E                                                  
+E + H2O^ > OH + H                                                     
+E + H2O^ > O + H + H                                                  
+E + H2O^ > O + H2                                                     
+E + N3^ > N + N2                                                      
+E + NO2^ > NO + O                                                     
+E + NO2^ > NO + O*                                                    
+E + H2NO^ > H2O + N                                                   
+E + NO^ > N* + O                                                      
+E + NH3^ > NH2 + H                                                    
+E + NH4^ > NH3 + H                                                    
+E + NO^*O2 > NO + O2                                                  
+E + NO^*H2O > NO + H2O                                                
+E + NO^*H2O2 > NO + H2O + H2O                                         
+E + NO^*H2O3 > NO + H2O+H2O+H2O                                       
+E + H3O^ > H2O + H                                                    
+E + H3O^*H2O > H + H2O + H2O                                          
+E + H3O^*H2O2 > H + X1WAT                                             
+E + H3O^*H2O3 > H +H2O+X1WAT                                          
+E + H3O^*H2O4 > H +H2O+H2O+X1WAT                                      
+E + O2^*H2O > O2 + H2O                                                
+E + H2O^ > OH + H                                                     
+E + H2O^ > O + H + H                                                  
+E + H2O^ > O + H2                                                     
+E + NO^ > N + O*                                                      
+E + N4^ > N2 + N2                                                     
+E + NO2 > NO2-                                                        
+N2* + N2* > N2* + N2                                                  
+N2* + N2 > N2 + N2                                                    
+N2*** + N2 > N2* + N2                                                 
+N2*** + N2* > N4^ + E                                                 
+N2*** + N2** > N4^ + E                                                
+N2*** + N2*** > N4^ + E                                               
+N2** > N2                                                             
+N2** > N2*                                                            
+N2*** > N2*                                                           
+N2* + NO > NO + N2                                                    
+N2* + O2 > O + O + N2                                                 
+N2* + O2 > O2 + N2                                                    
+N2* + N2O > N2 + N2 + O                                               
+N2* + N2O > N2 + N2O                                                  
+N2* + NO2 > NO + O + N2                                               
+N2* + H2 > N2 + H2                                                    
+O + O2 + M > O3 + M                                                   
+H + OH + M > H2O + M                                                  
+N2O5 > NO2 + NO3                                                      
+NO + O2 + NO > NO2 + NO2                                              
+NO + HO2 > NO2 + OH                                                   
+N* + N2 > N + N2                                                      
+NO + O + O2 > NO2 + O2                                                
+N* + O2 > NO + O                                                      
+NO + OH + M > HNO2 + M                                                
+N* + NO > N2 + O                                                      
+NO + H + M > HNO + M                                                  
+N* + N2O > NO + N2                                                    
+NO + NO3 > NO2 + NO2                                                  
+HO2 + NO + M > HNO3 + M                                               
+HO2 + NO > O2 + HNO                                                   
+N* + NO2 > N2O + O                                                    
+NO + O3 > NO2 + O2                                                    
+N* + NO2 > NO + NO                                                    
+NO + N > N2 + O                                                       
+H + O2 + M > HO2 + M                                                  
+H + H + M > H2 + M                                                    
+H + NO2 > OH + NO                                                     
+H + HO2 > OH + OH                                                     
+H + O3 > OH + O2                                                      
+H + HNO > H2 + NO                                                     
+H + HNO > OH + NH                                                     
+H + HNO > O + NH2                                                     
+N + NO2 > N2O + O                                                     
+N + NO2 > NO + NO                                                     
+N + N + M > N2 + M                                                    
+N + OH > NO + H                                                       
+N + OH > O + NH                                                       
+O* + N2 > O + N2                                                      
+N + O + M > NO + M                                                    
+O* + O2 > O + O2                                                      
+N + O2 > NO + O                                                       
+N + O3 > NO + O2                                                      
+N + H2O > NH + OH                                                     
+N + H2 > NH + H                                                       
+O* + H2O > O + H2O                                                    
+O* + H2O > OH + OH                                                    
+O + HO2 > OH + O2                                                     
+O + O3 > O2 + O2                                                      
+O + NO2 + M > NO3 + M                                                 
+NO3 + NO3 > NO2 + NO2 + O2                                            
+OH + OH > O + H2O                                                     
+N2O5 + H2O > HNO3 + HNO3                                              
+NH + NO > N2O + H                                                     
+OH + NO2 + N2 > HNO3 + N2                                             
+NH + O2 > HNO + O                                                     
+OH + HNO3 > NO3 + H2O                                                 
+OH + HNO > H2O + NO                                                   
+OH + HO2 > H2O + O2                                                   
+H2O^ + H2O > H3O^ + OH                                                
+OH + HNO2 > NO2 + H2O                                                 
+H2O^ + O2 > O2^ + H2O                                                 
+OH + O3 > HO2 + O2                                                    
+N3^ + O2 > NO^ + N2O                                                  
+OH + N2O > HNO + NO                                                   
+N3^ + O2 > NO2^ + N2                                                  
+HO2 + NO2 + N2 > HO2NO2 + N2                                          
+N3^ + NO > NO^ + N + N2                                               
+HO2 + O3 > OH + O2 + O2                                               
+N3^ + NO2 > NO^ + NO + N2                                             
+NO2 + O3 > NO3 + O2                                                   
+N3^ + NO2 > NO2^ + N + N2                                             
+N3^ + N2O > NO^ + N2 + N2                                             
+O + NO2 > NO + O2                                                     
+O + NO3 > O2 + NO2                                                    
+N3^ + NO2- > N + N2 + NO2                                             
+O + OH > H + O2                                                       
+O^ + N2 > NO^ + N                                                     
+OH + OH + O2 > H2O2 + O2                                              
+O^ + NO > NO^ + O                                                     
+OH + H2O2 > H2O + HO2                                                 
+O^ + O2 > O2^ + O                                                     
+H + HO2 > H2 + O2                                                     
+O^ + NO2 > NO2^ + O                                                   
+HO2NO2 + O2 > HO2 + NO2 + O2                                          
+O^ + NO2- > O + NO2                                                   
+O2^ + NO > NO^ + O2                                                   
+O2^ + NO2 > NO2^ + O2                                                 
+O2^*H2O + H2O > H3O^ + OH + O2                                        
+O2^ + NO2- > O2 + NO2                                                 
+H3O^ + H2O          > H3O^*H2O                                        
+H3O^*H2O + H2O      > H3O^*H2O2                                       
+H3O^*H2O2 + H2O     > H3O^*H2O3                                       
+H3O^*H2O3 + H2O     > H3O^*H2O4                                       
+H3O^*H2O +M  > H3O^ + H2O+M                                           
+H3O^*H2O2 +M > H3O^*H2O + H2O+M                                       
+H3O^*H2O3 +M > H3O^*H2O2 + H2O+M                                      
+H3O^*H2O4 +M > H3O^*H2O3 + H2O+M                                      
+NO2^ + NO > NO^ + NO2                                                 
+H3O^*H2O2 + NO2- > H + X1WAT + NO2                                    
+H3O^*H2O2 + NO3- > H + X1WAT + NO3                                    
+H3O^*H2O3 + NO2- > H +H2O+X1WAT+NO2                                   
+H3O^*H2O3 + NO3- > H +H2O+X1WAT+NO3                                   
+H3O^*H2O4 + NO2- > H+H2O+H2O+X1WAT+NO2                                
+H3O^*H2O4 + NO3- > H+H2O+H2O+X1WAT+NO3                                
+NO2^ + NO2- > NO2 + NO2                                               
+NO2^ + NO3- > NO2 + NO3                                               
+N2^ + NO > NO^ + N2                                                   
+N3^ + H2O > H2NO^ + N2                                                
+N2^ + NO2 > NO2^ + N2                                                 
+N2^ + NO2 > NO^ + N2O                                                 
+H2NO^ + NO2- > H2O + N + NO2                                          
+H2NO^ + NO3- > H2O + N + NO3                                          
+NO2- + HNO3 > NO3- + HNO2                                             
+N2^ + NO2- > N2 + NO2                                                 
+NO2- + NO2 > NO3- + NO                                                
+N2^ + NO3- > N2 + NO3                                                 
+NO2- + N2O > NO3- + N2                                                
+NO2- + N2O5 > NO3- + NO2 + NO2                                        
+NO2- + O3 > NO3- + O2                                                 
+NO3- + NO > NO2- + NO2                                                
+NO^ + NO2- > NO + NO2                                                 
+NO^ + NO3- > NO + NO3                                                 
+O2- + NO2 > NO2- + O2                                                 
+O- + O2 > O2- + O                                                     
+O- + O > O2 + E                                                       
+O2- + O > E + O3                                                      
+O2- + O > O- + O2                                                     
+O2- + O2* > E + O2 + O2                                               
+NO^ + O2 + M > NO^*O2 + M                                             
+O2- + N2^ > N2 + O2                                                   
+NO^*O2 + NO2- > NO + O2 + NO2                                         
+N* + NH3 > NH + NH2                                                   
+NO^*O2 + NO2- > NO3 + NO2                                             
+NO^*O2 + NO3- > NO + O2 + NO3                                         
+OH + NH3 > NH2 + H2O                                                  
+O* + NH3 > NH2 + OH                                                   
+NH2 + NO > N2 + H2O                                                   
+NH2 + NO2 > N2O + H2O                                                 
+NH3 + O > OH + NH2                                                    
+NH2 + H + M > NH3 + M                                                 
+NH2 + H > NH + H2                                                     
+N^ + O2 > NO^ + O                                                     
+O2^ + NH3 > NH3^ + O2                                                 
+N^ + O2 > O2^ + N                                                     
+NH3^ + NH3 > NH4^ + NH2                                               
+N^ + O2 > O^ + NO                                                     
+H3O^ + NH3 > NH4^ + H2O                                               
+N^ + NO > NO^ + N                                                     
+N^ + NH3 > NH3^ + N                                                   
+N3^ + NH3 > NH3^ + N + N2                                             
+N2^ + O2 > O2^ + N2                                                   
+N2^ + NH3 > NH3^ + N2                                                 
+N4^ + NO > NO^ + N2 + N2                                              
+N4^ + NO2 > NO2^ + N2 + N2                                            
+NH3^ + NO3- > NH3 + NO3                                               
+N4^ + NO2 > NO^ + N2O + N2                                            
+N4^ + O2 > O2^ + N2 + N2                                              
+NO^ + H2O + M > NO^*H2O + M                                           
+NO^*H2O + H2O + M > NO^*H2O2 + M                                      
+NO^*H2O2 + M > NO^*H2O + H2O + M                                      
+NO^*H2O2 + H2O > NO^*H2O3                                             
+O2^ + H2O + M > O2^*H2O + M                                           
+NO^*H2O3 + H2O > H3O^*H2O2 + HNO2                                     
+NH2 + O > NH + OH                                                     
+NH2 + O > HNO + H                                                     
+HO2NO2 + N2 > HO2 + NO2 + N2                                          
+OH + NO2 + O2 > HNO3 + O2                                             
+OH + H2 > H2O + H                                                     
+O* + H2O > H2 + O2                                                    
+O* + H2 > OH + H                                                      
+O + H2O2 > OH + HO2                                                   
+O + H2 > OH + H                                                       
+H + HO2 > H2O + O                                                     
+O + O2 + N2 > O2 + O + N2                                             
+HO2 + HO2 + M > H2O2 + O2 + M                                         
+O + NO + N2 > NO2 + N2                                                
+NO2 + NO3 + M > N2O5 + M                                              
+N^ + H2O > H2O^ + N                                                   
+N4^ + NO2- > NO2 + N2 + N2                                            
+N4^ + NO3- > NO3 + N2 + N2                                            
+N4^ + O2- > N2 + N2 + O2                                              
+H2O^ + NO2- > H2O + NO2                                               
+H2O^ + NO3- > H2O + NO3                                               
+H2O^ + O2- > H2O + O2                                                 
+H3O^ + NO2- > H2O + H + NO2                                           
+H3O^ + NO3- > H2O + H + NO3                                           
+H3O^ + O2- > H2O + H + O2                                             
+O2^ + NO3- > O2 + NO3                                                 
+O2^ + O2- > O2 + O2                                                   
+N3^ + NO3- > N2 + N + NO3                                             
+N3^ + O2- > N2 + N + O2                                               
+NO^ + O2- > NO + O2                                                   
+NO2^ + O2- > NO2 + O2                                                 
+O^ + NO3- > O + NO3                                                   
+O^ + O2- > O + O2                                                     
+NO^*O2 + O2- > NO + O2 + O2                                           
+N^ + O2- > N + O2                                                     
+N^ + NO2- > N + NO2                                                   
+N^ + NO3- > N + NO3                                                   
+O2^*H2O + O2- > O2 + O2 + H2O                                         
+O2^*H2O + NO3- > O2 + NO3 + H2O                                       
+O2^*H2O + NO2- > O2 + H2O + NO2                                       
+H3O^*H2O + NO2- > H + H2O + H2O + NO2                                 
+H3O^*H2O + NO3- > H + H2O + H2O + NO3                                 
+H3O^*H2O + O2- > H + H2O + H2O + O2                                   
+H3O^*H2O2 + O2- > H + X1WAT + O2                                      
+H3O^*H2O3 + O2- > H +H2O+X1WAT + O2                                   
+H3O^*H2O4 + O2- > H +H2O+H2O+X1WAT + O2                               
+H2NO^ + O2- > H2O + N + O2                                            
+NH3^ + NO2- > NH3 + NO2                                               
+NH3^ + O2- > NH3 + O2                                                 
+NH4^ + NO2- > NH3 + H + NO2                                           
+NH4^ + NO3- > NH3 + H + NO3                                           
+NH4^ + O2- > NH3 + H + O2                                             
+NO^*H2O + NO2- > NO + H2O + NO2                                       
+NO^*H2O + NO3- > NO + H2O + NO3                                       
+NO^*H2O + O2- > NO + H2O + O2                                         
+NO^*H2O2 + NO3- > NO +H2O + H2O + NO3                                 
+NO^*H2O3+NO3->NO+H2O+H2O+H2O+NO3                                      
+NO^*H2O2 + NO2- > NO +H2O + H2O + NO2                                 
+NO^*H2O3+NO2->NO+H2O+H2O+H2O+NO2                                      
+NO^*H2O2 + O2- > NO +H2O + H2O + O2                                   
+NO^*H2O3+O2->NO+H2O+H2O+H2O+O2                                        
+O + H + M > OH + M                                                    
+H + H2O2 > H2O + OH                                                   
+NO2 + NO2 + M > N2O4 + M                                              
+N2O4 + M > NO2 + NO2 + M                                              
+NH2 + H2 > NH3 + H                                                    
+NH3 + H > NH2 + H2                                                    
+OH + NO3 > HO2 + NO2                                                  
+HO2 + NO3 > OH + NO2 + O2                                             
+HO2 + NO3 > HNO3 + O2                                                 
+H + H2O2 > HO2 + H2                                                   
+HNO3 + NO > HNO2 + NO2                                                
+H2 + O2 > H + HO2                                                     
+H + O2 > OH + O                                                       
+OH + M > O + H + M                                                    
+OH + O2 > O + HO2                                                     
+OH + H > O + H2                                                       
+HO2 + M > H + O2 + M                                                  
+HO2 + H2 > H2O2 + H                                                   
+H2O2 + O2 > HO2 + HO2                                                 
+H2O + H > H2 + OH                                                     
+H2O + O > OH + OH                                                     
+H- + N2^ > H + N2                                                     
+O- + N2^ > O + N2                                                     
+O- + H2^ > O + H2                                                     
+O2- + H2^ > O2 + H2                                                   
+H- + H2^ > H + H2                                                     
+H- + H2O^ > H + H2O                                                   
+O- + H2O^ > O + H2O                                                   
+H- + H3O^ > H2 + H2O                                                  
+O- + H3O^ > OH + H2O                                                  
+H- + O2^ + M > HO2 + M                                                
+O- + O2^ > O + O2                                                     
+H- + N3^ > NH + N2                                                    
+O- + N3^ > NO + N2                                                    
+H- + NO^ + M > HNO + M                                                
+O- + NO^ > NO + O                                                     
+H- + NO2^ + M > HNO2 + M                                              
+O- + NO2^ > NO2 + O                                                   
+H- + O^ + M > OH + M                                                  
+O- + O^ + M > O2 + M                                                  
+H- + NO^*O2 > HNO + O2                                                
+O- + NO^*O2 > NO2 + O2                                                
+H- + N^ + M > NH + M                                                  
+O- + N^ + M > NO + M                                                  
+H- + N4^ > H + N2 + N2                                                
+O- + N4^ > O + N2 + N2                                                
+H- + O2^*H2O > HO2 + H2O                                              
+O- + O2^*H2O > O + O2 + H2O                                           
+H- + H3O^*H2O > H2 + H2O + H2O                                        
+O- + H3O^*H2O > OH + H2O + H2O                                        
+H- + H3O^*H2O2 > H2 + X1WAT                                           
+O- + H3O^*H2O2 > OH + X1WAT                                           
+H- + H3O^*H2O3 > H2 +H2O+X1WAT                                        
+O- + H3O^*H2O3 > OH +H2O+X1WAT                                        
+H- + H3O^*H2O4 > H2 +H2O+H2O+X1WAT                                    
+O- + H3O^*H2O4 > OH +H2O+H2O+X1WAT                                    
+H- + H2NO^ > H2 + HNO                                                 
+O- + H2NO^ > OH + HNO                                                 
+H- + NH3^ > H + NH3                                                   
+O- + NH3^ > O + NH3                                                   
+H- + NH4^ > H2 + NH3                                                  
+O- + NH4^ > OH + NH3                                                  
+H- + NO^*H2O > H + NO + H2O                                           
+O- + NO^*H2O > O + NO + H2O                                           
+H- + NO^*H2O2 > HNO + H2O + H2O                                       
+O- + NO^*H2O2 > NO2 + H2O + H2O                                       
+H- + NO^*H2O3 > HNO + H2O + H2O + H2O                                 
+O- + NO^*H2O3 > NO2 + H2O + H2O + H2O                                 
+X1WAT > H2O + H2O + H2O                                               
+OH + NO2 + H2O > HNO3 + H2O                                           
+N2^ + H2O > H2O^ + N2                                                 
+O + OH + M > HO2 + M                                                  
+O* + O3 > O2 + O + O                                                  
+O* + NO > O2 + N                                                      
+NH + NO > N2 + OH                                                     
+N3 + NO > N2O + N2                                                    
+NH2 + O > H2 + NO                                                     
+OH + NO2 > HO2 + NO                                                   
+NO3 + NO2 > NO + NO2 + O2                                             
+O* + NO2 > O2 + NO                                                    
+O* + N2O > NO + NO                                                    
+NO2 + O3 > O2 + O2 + NO                                               
+O + N3 > NO + N2                                                      
+O + HNO > OH + NO                                                     
+HNO + O2 > NO + HO2                                                   
+HNO + H2 > NH + H2O                                                   
+O + O + M > O2 + M                                                    
+NO + M > N + O + M                                                    
+N2 + M > N + N + M                                                    
+O2 + M > O + O + M                                                    
+NO2 + M > NO + O + M                                                  
+NO3 + M > NO + O2 + M                                                 
+N2O + M > NO + N + M                                                  
+O3 + M > O2 + O + M                                                   
+NO2 + NO2 > NO + NO + O2                                              
+NO2 + NO2 > NO + NO3                                                  
+N2^ + N2 + M > N4^ + M                                                
+N2^ + N2 > N3^ + N                                                    
+N4^ + M > N2^ + N2 + M                                                
+N^ + N2 + M > N3^ + M                                                 
+O* + O3 > O2 + O2                                                     
+O* + O2* > O + O2                                                     
+O* + O > O + O                                                        
+O2* + O2 > O2 + O2                                                    
+O2* + O2 > O + O3                                                     
+O2* + O3 > O2 + O2 + O                                                
+O2V + M > O2 + M                                                      
+O2 + M > O2V + M                                                      
+N2V + N2 > N2 + N2                                                    
+N2 + M > N2V + M                                                      
+N2V + N > N + N2                                                      
+N2V + O2 > O2 + N2                                                    
+N2V + O > O + N2                                                      
+N2V + H2O > H2O + N2                                                  
+HO2 + NO2 > HNO2 + O2                                                 
+O + HNO2 > NO2 + OH                                                   
+O2* + N2 > O2 + N2                                                    
+O2* + M > O2 + M                                                      
+O2- + H2O + M      > O2*H2O- + M                                      
+O2*H2O- + H2O + M  > O2*H2O2- + M                                     
+O- + H2O + M       > O*H2O- + M                                       
+O*H2O- + H2O       > OH*H2O- + OH                                     
+OH*H2O- + H2O + M  > OH*H2O2- + M                                     
+O2*H2O-  + NO^*H2O3 >O2+H2O+NO+X1WAT                                  
+O2*H2O2- + NO^*H2O3 >O2 + H2O+H2O+NO+X1WAT                            
+O*H2O-   + NO^*H2O3 >O +H2O+NO+X1WAT                                  
+OH*H2O-  + NO^*H2O3 >OH+H2O+NO+X1WAT                                  
+OH*H2O2- + NO^*H2O3 >OH + H2O+H2O+NO+X1WAT                            
+O2*H2O-  + NO^*H2O2 >O2+NO+X1WAT                                      
+O2*H2O2- + NO^*H2O2 >O2 + H2O+NO+X1WAT                                
+O*H2O-   + NO^*H2O2 >O +NO+X1WAT                                      
+OH*H2O-  + NO^*H2O2 >OH+NO+X1WAT                                      
+OH*H2O2- + NO^*H2O2 >OH + H2O+NO+X1WAT                                
+O2*H2O-  + NO^*H2O >O2+H2O+NO+H2O                                     
+O2*H2O2- + NO^*H2O >O2 + H2O+H2O+NO+H2O                               
+O*H2O-   + NO^*H2O >O +H2O+NO+H2O                                     
+OH*H2O-  + NO^*H2O >OH+H2O+NO+H2O                                     
+OH*H2O2- + NO^*H2O >OH + H2O+H2O+NO+H2O                               
+O2*H2O-  + H3O^*H2O4 >O2+H+X1WAT+X1WAT                                
+O2*H2O2- + H3O^*H2O4 >O2+H2O+H+X1WAT+X1WAT                            
+O*H2O-   + H3O^*H2O4 >O+H+X1WAT+X1WAT                                 
+OH*H2O-  + H3O^*H2O4 >OH+H+X1WAT+X1WAT                                
+OH*H2O2- + H3O^*H2O4 >OH+H2O+H+X1WAT+X1WAT                            
+O2*H2O-  +H3O^*H2O3 >O2+H2O+H+H2O+X1WAT                               
+O2*H2O2- +H3O^*H2O3 >O2+H2O+H2O+H+H2O+X1WAT                           
+O*H2O-   +H3O^*H2O3 >O+H2O+H+H2O+X1WAT                                
+OH*H2O-  +H3O^*H2O3 >OH+H2O+H+H2O+X1WAT                               
+OH*H2O2- +H3O^*H2O3 >OH+H2O+H2O+H+H2O+X1WAT                           
+O2*H2O-  + H3O^*H2O2 >O2+H2O+H+X1WAT                                  
+O2*H2O2- + H3O^*H2O2 >O2 + H2O+H2O+H+X1WAT                            
+O*H2O-   + H3O^*H2O2 >O +H2O+H+X1WAT                                  
+OH*H2O-  + H3O^*H2O2 >OH+H2O+H+X1WAT                                  
+OH*H2O2- + H3O^*H2O2 >OH + H2O+H2O+H+X1WAT                            
+O2*H2O-  +H3O^*H2O >O2+H2O+H+H2O+H2O                                  
+O2*H2O2- +H3O^*H2O >O2 + H2O+H2O+H+H2O+H2O                            
+O*H2O-   +H3O^*H2O >O +H2O+H+H2O+H2O                                  
+OH*H2O-  +H3O^*H2O >OH+H2O+H+H2O+H2O                                  
+OH*H2O2- +H3O^*H2O >OH + H2O+H2O+H+H2O+H2O                            
+O2*H2O-  + O2^*H2O > O2 +H2O +O2+H2O                                  
+O2*H2O2- + O2^*H2O > O2 +H2O + H2O +O2+H2O                            
+O*H2O-   + O2^*H2O > O  +H2O +O2+H2O                                  
+OH*H2O-  + O2^*H2O > OH +H2O +O2+H2O                                  
+OH*H2O2- + O2^*H2O > OH +H2O + H2O +O2+H2O                            
+O2*H2O-  + H2NO^ > O2 + H2O + H2O+N                                   
+O2*H2O2- + H2NO^ > O2 + H2O + H2O + H2O+N                             
+O*H2O-   + H2NO^ > O  + H2O + H2O+N                                   
+OH*H2O-  + H2NO^ > OH + H2O + H2O+N                                   
+OH*H2O2- + H2NO^ > OH + H2O + H2O + H2O+N                             
+O2*H2O-  + NH4^ > O2 + H2O + NH3+H                                    
+O2*H2O2- + NH4^ > O2 + H2O + H2O + NH3+H                              
+O*H2O-   + NH4^ > O  + H2O + NH3+H                                    
+OH*H2O-  + NH4^ > OH + H2O + NH3+H                                    
+OH*H2O2- + NH4^ > OH + H2O + H2O + NH3+H                              
+O2*H2O-  + NH3^ > O2 + H2O + NH3                                      
+O2*H2O2- + NH3^ > O2 + H2O + H2O + NH3                                
+O*H2O-   + NH3^ > O  + H2O + NH3                                      
+OH*H2O-  + NH3^ > OH + H2O + NH3                                      
+OH*H2O2- + NH3^ > OH + H2O + H2O + NH3                                
+O2*H2O-  + NO^*O2 > O2 + H2O + NO+O2                                  
+O2*H2O2- + NO^*O2 > O2 + H2O + H2O + NO+O2                            
+O*H2O-   + NO^*O2 > O  + H2O + NO+O2                                  
+OH*H2O-  + NO^*O2 > OH + H2O + NO+O2                                  
+OH*H2O2- + NO^*O2 > OH + H2O + H2O + NO+O2                            
+O2*H2O-  + H3O^ > O2 + H2O + H2O+H                                    
+O2*H2O2- + H3O^ > O2 + H2O + H2O + H2O+H                              
+O*H2O-   + H3O^ > O  + H2O + H2O+H                                    
+OH*H2O-  + H3O^ > OH + H2O + H2O+H                                    
+OH*H2O2- + H3O^ > OH + H2O + H2O + H2O+H                              
+O2*H2O-  + H2O^ > O2 + H2O + H2O                                      
+O2*H2O2- + H2O^ > O2 + H2O + H2O + H2O                                
+O*H2O-   + H2O^ > O  + H2O + H2O                                      
+OH*H2O-  + H2O^ > OH + H2O + H2O                                      
+OH*H2O2- + H2O^ > OH + H2O + H2O + H2O                                
+O2*H2O-  + NO2^ > O2 + H2O + NO2                                      
+O2*H2O2- + NO2^ > O2 + H2O + H2O + NO2                                
+O*H2O-   + NO2^ > O  + H2O + NO2                                      
+OH*H2O-  + NO2^ > OH + H2O + NO2                                      
+OH*H2O2- + NO2^ > OH + H2O + H2O + NO2                                
+O2*H2O-  + NO^ > O2 + H2O + NO                                        
+O2*H2O2- + NO^ > O2 + H2O + H2O + NO                                  
+O*H2O-   + NO^ > O  + H2O + NO                                        
+OH*H2O-  + NO^ > OH + H2O + NO                                        
+OH*H2O2- + NO^ > OH + H2O + H2O + NO                                  
+O2*H2O-  + H2^ > O2 + H2O + H2                                        
+O2*H2O2- + H2^ > O2 + H2O + H2O + H2                                  
+O*H2O-   + H2^ > O  + H2O + H2                                        
+OH*H2O-  + H2^ > OH + H2O + H2                                        
+OH*H2O2- + H2^ > OH + H2O + H2O + H2                                  
+O2*H2O-  + N^ > O2 + H2O + N                                          
+O2*H2O2- + N^ > O2 + H2O + H2O + N                                    
+O*H2O-   + N^ > O  + H2O + N                                          
+OH*H2O-  + N^ > OH + H2O + N                                          
+OH*H2O2- + N^ > OH + H2O + H2O + N                                    
+O2*H2O-  + N4^ > O2 + H2O + N2+N2                                     
+O2*H2O2- + N4^ > O2 + H2O + H2O + N2+N2                               
+O*H2O-   + N4^ > O  + H2O + N2+N2                                     
+OH*H2O-  + N4^ > OH + H2O + N2+N2                                     
+OH*H2O2- + N4^ > OH + H2O + H2O + N2+N2                               
+O2*H2O-  + N3^ > O2 + H2O + N2+N                                      
+O2*H2O2- + N3^ > O2 + H2O + H2O + N2+N                                
+O*H2O-   + N3^ > O  + H2O + N2+N                                      
+OH*H2O-  + N3^ > OH + H2O + N2+N                                      
+OH*H2O2- + N3^ > OH + H2O + H2O + N2+N                                
+O2*H2O-  + N2^ > O2 + H2O + N2                                        
+O2*H2O2- + N2^ > O2 + H2O + H2O + N2                                  
+O*H2O-   + N2^ > O  + H2O + N2                                        
+OH*H2O-  + N2^ > OH + H2O + N2                                        
+OH*H2O2- + N2^ > OH + H2O + H2O + N2                                  
+O2*H2O-  + O^ > O2 + H2O + O                                          
+O2*H2O2- + O^ > O2 + H2O + H2O + O                                    
+O*H2O-   + O^ > O  + H2O + O                                          
+OH*H2O-  + O^ > OH + H2O + O                                          
+OH*H2O2- + O^ > OH + H2O + H2O + O                                    
+O2*H2O-  + O2^ > O2 + H2O + O2                                        
+O2*H2O2- + O2^ > O2 + H2O + H2O + O2                                  
+O*H2O-   + O2^ > O  + H2O + O2                                        
+OH*H2O-  + O2^ > OH + H2O + O2                                        
+OH*H2O2- + O2^ > OH + H2O + H2O + O2                                  
+
+
+

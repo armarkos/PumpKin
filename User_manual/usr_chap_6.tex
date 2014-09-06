@@ -4,7 +4,7 @@
 \chapter{PumpKin Algorithm}
 \label{sec_6}
 
-In this section we briefly describe the algorithm proposed by Lehmann~\cite{Lehman2003} and used in the package PumpKin. For a more detailed description and discussion about the algorithm we refer to~\cite{Lehman2003}.
+In this section we briefly describe the algorithm proposed by Lehmann~\cite{Lehmann2004/JAC} and used in the package PumpKin. For a more detailed description and discussion about the algorithm we refer to~\cite{Lehmann2004/JAC}.
 
 %=============================================================================
 
@@ -93,7 +93,7 @@ A reaction sequence $P' _k$ is called \textit{sub-pathway} of a pathway $P_l$ if
 R(P'_k)\subset R(P_l)\,, 
 \label{2.2.7}
 \end{equation}
-where $R(P_l) := \{j\in \{1,\ldots,n_R\}|x_{jl}\neq 0\}$. A pathway is called \textit{elementary} if it does not contain sub-pathways (condition(C3$'$) from~\cite{Sch2002}).
+where $R(P_l) := \{j\in \{1,\ldots,n_R\}|x_{jl}\neq 0\}$. A pathway is called \textit{elementary} if it does not contain sub-pathways (condition(C3$'$) from~\cite{Schuster2002}).
 
 %=============================================================================
 
@@ -157,7 +157,7 @@ x_{jn} = x_{jk}\cdot|m_{bl}| + x_{jl}\cdot m_{bk} \,, \quad j = 1,\ldots, n_R\,.
 \label{2.5.1}
 \end{equation}
 Equation (\ref{2.5.0}) ensures that the constructed pathway $P_n$ fully recycles $S_b$, that is, it has no net production or consumption of $S_b$. 
-\\ The rate $f_n$ of the new pathway $P_n$ is calculated using the branching probabilities discussed in~\cite{Lehman2003} and reads
+\\ The rate $f_n$ of the new pathway $P_n$ is calculated using the branching probabilities discussed in~\cite{Lehmann2004/JAC} and reads
 \begin{equation}
 f_n = \frac{f_k\cdot f_l}{D_b}\,.
 \label{2.5.2}
@@ -189,7 +189,7 @@ Even when the total number of reactions is relatively low, \pump{} may generate 
 \tilde{d}_i := \tilde{d}_i + m_{in}\cdot f_n\,, \quad \textrm{if } m_{in} <0, \quad i = 1,\ldots, n_S\,,
 \label{2.6.2}
 \end{equation}
- where $x_{jn}$ is the multiplicity of reaction $R_j$ in $P_n$, and $m_{in}$ is the number of molecules of $S_i$ produced by $P_n$. More details are discussed in~\cite{Lehman2003}.
+ where $x_{jn}$ is the multiplicity of reaction $R_j$ in $P_n$, and $m_{in}$ is the number of molecules of $S_i$ produced by $P_n$. More details are discussed in~\cite{Lehmann2004/JAC}.
   
 %=============================================================================
 
@@ -197,7 +197,7 @@ Even when the total number of reactions is relatively low, \pump{} may generate 
 \label{sec2c5}
 In section \ref{sec2c4} we discussed the procedure to limit the growth of total number of pathways in our algorithm.  On the other hand, when two pathways are connected, it may happen that the resulting reaction sequence in unnecessarily complicated, i.e. it contains other pathways as sub-pathways. 
 
-As described in section \ref{sec2c4}, we often eliminate ``insignificant'' pathways; so it is not enough to check whether other pathways constructed so far are sub-pathways of $P_n$.  Instead, for a given pathway $P_n$ we determine all elementary sub-pathways $P'_k$, $k=1,\ldots,n_{P'}$, using the algorithm by Schuster and Schuster~\cite{Sch1993, Lehman2003}. This method has a limitation, namely, it requires that all intermediate species, i.e. branching-points, are at steady state
+As described in section \ref{sec2c4}, we often eliminate ``insignificant'' pathways; so it is not enough to check whether other pathways constructed so far are sub-pathways of $P_n$.  Instead, for a given pathway $P_n$ we determine all elementary sub-pathways $P'_k$, $k=1,\ldots,n_{P'}$, using the algorithm by Schuster and Schuster~\cite{Schuster1993refined, Lehmann2004/JAC}. This method has a limitation, namely, it requires that all intermediate species, i.e. branching-points, are at steady state
 \begin{equation}
 \sum_{j=1}^{n_R} x_{jn}\cdot s_{ij} = 0 \, \textrm{for all } i\textrm{ for which } S_i \textrm{ has been a branching point}\,.
 \label{2.7.0}
@@ -216,12 +216,12 @@ Once we have the sub-pathways $P'_k$, $k=1,\ldots,n_{P'}$, of a pathway $P_n$, t
 x_{jn}=\sum_{k=1}^{n_P'} w_k\cdot x'_{jk}, \quad j =1,\ldots, n_R\,,
 \label{2.7.2}
 \end{equation}
-where $x_{jn}$ and $x'_{jk}$  are the multiplicities of reaction $R_j$ in pathway $P_n$ and subpathway $P'_k$, respectively. Such representation is justified in \cite{Sch2002}. The rate $f_n$ of $P_n$ will be distributed to the sub-pathways according to 
+where $x_{jn}$ and $x'_{jk}$  are the multiplicities of reaction $R_j$ in pathway $P_n$ and subpathway $P'_k$, respectively. Such representation is justified in \cite{Schuster2002}. The rate $f_n$ of $P_n$ will be distributed to the sub-pathways according to 
 \begin{equation}
 f'_k = w_k \cdot f_n, \quad k=1,\ldots , n_{P'}\,.
 \label{2.7.3}
 \end{equation}
-The equation (\ref{2.7.2}) leads to a linear optimization problem~\cite{Lehman2003}, which we solve by the simplex method employing the GPLK package~\cite{Glpk}. Then, we search for the sub-pathways $P'_k$, $k=1,\ldots , n_{P'}$, in the list of pathways constructed so far by the main part of the algorithm. If $P'_k$ is contained in that list, then we add $f'_k$ to its rate, otherwise, we add $P'_k$ as a new entry with rate $f'_k$.
+The equation (\ref{2.7.2}) leads to a linear optimization problem~\cite{Lehmann2004/JAC}, which we solve by the simplex method employing the GPLK package~\cite{Glpk}. Then, we search for the sub-pathways $P'_k$, $k=1,\ldots , n_{P'}$, in the list of pathways constructed so far by the main part of the algorithm. If $P'_k$ is contained in that list, then we add $f'_k$ to its rate, otherwise, we add $P'_k$ as a new entry with rate $f'_k$.
 
 
 

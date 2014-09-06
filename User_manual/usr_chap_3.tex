@@ -9,7 +9,6 @@
 \section{Input}
 \label{sec_3_1}
 
-
 To determine the chemical pathways, \pump{} requires from the user the stoichiometric 
 matrix and kinetic data for the full chemical reaction system, namely:
 \begin{itemize}
@@ -23,21 +22,16 @@ $S_i$ consumed) by reaction $R_j$,}
 \item{a time evolution of concentrations $c_i(t_l)$ and reactions rate $r_j(t_l)$, 
 where $l = 1, \ldots, n_T$ and $t_0 = t_1\leq\ldots \leq t_{n_T}=t_{end}$,}
 \end{itemize}
-The code is independent of the units chosen by the user.  Conventionally, $c_i(t_l)$ is specified in units of [molec. cm$^{-3}$] and $r_j$ in units of [molec. cm$^{-3}$ s$^{-1}$]. 
+The code is independent of the units chosen by the user.  Conventionally, $c_i(t_l)$ is specified in units of [molec. cm$^{-3}$] and $r_j$ in units of [molec. cm$^{-3}$ s$^{-1}$].
 
-This input data, resulting from the solution of the chemical model, is read
-in the format supported by ZDPlaskin~\cite{Sergey2008,Flitti2009} and
-QtPlaskin~\cite{Qtplaskin}.  It consists of these files:
+\pump{} expects that user stores data in the following files:
 \begin{description}
-  \item{\verb|qt_species_list.txt|:} Contains the names of species included in the model.  It has two columns: first a number indicating the species number $i$, then the name of the species, which can be any arbitrary string.
-  \item{\file{qt_reactions_list.txt}} Contains human-readable reaction signatures.  It has two columns: first a number indicating the reaction number $j$, then the reaction signature, which can be any arbitrary string.
-  \item{\file{qt_conditions.txt}} Contains any number of time-dependent variables resulting from the simulation besides species densities and reaction rates.  \pump{} only reads the first column, containing the time steps $t_l$ (see \ref{sec:define}).
-  \item{\file{qt_matrix.txt}} Contains the stoichiometric matrix of the chemical model.  The coefficient $s_{ij}$ must be located at  line $i$, column $j$ of the file.
-  \item{\file{qt_densities.txt}} Contains the time-dependent densities of each species at times $t_l$.  The first column lists the times $t_l$; the density $c_i(t_l)$ is at row $l$, column $i+1$.
-  \item{\file{qt_rates.txt}} Contains the time-dependent rates of each reaction at times $t_l$.  The first column lists the times $t_l$; the rate $r_j(t_l)$ is at row $l$, column $j+1$.
-\end{description}
-
-The user should also provide an input file similar to the following table
+  \item{\verb|qt_species_list.txt|:} Contains the names of species included in the model. 
+  \item{\file{qt_reactions_list.txt}} Contains human-readable reaction signatures.  \item{\file{qt_conditions.txt}} Contains the time steps $t_l$ (see \ref{sec_6_1}) resulting from the simulation.
+  \item{\file{qt_matrix.txt}} Contains the stoichiometric matrix of the chemical model.
+  \item{\file{qt_densities.txt}} Contains the time-dependent densities of each species at times $t_l$.  
+  \item{\file{qt_rates.txt}} Contains the time-dependent rates of each reaction at times $t_l$.  
+  \item{\file{input.txt}} The user should also provide an input file similar to the following table
 \begin{align*}
 \texttt{interest} &\texttt{ =  1} \\
 \texttt{t\_init} & \texttt{ = 0.0}\\ 
@@ -45,7 +39,8 @@ The user should also provide an input file similar to the following table
 \texttt{max\_bp} & \texttt{ = 0}\\ \label{eq:aram} \tag{*} 
 \texttt{tau\_lifetime} & \texttt{ = 0.9e-5}\\ 
 \texttt{max\_path} & \texttt{ = 1500}\\
-\texttt{f\_min} & \texttt{ = 0,}
+\texttt{f\_min} & \texttt{ = 0}\\
+\texttt{global\_kin} & \texttt{ = 1,}
 \end{align*}
 where:  
 \begin{itemize}
@@ -56,9 +51,12 @@ where:
 \item{\code{tau\_lifetime} - if positive, a lifetime threshold with units of [s], otherwise it is disregarded,}
 \item{\code{max\_path} - if positive, the maximum number of pathways considered per branching point treatment, i.e. only the first \code{max\_path} pathways with higher rate will be considered, otherwise it is disregarded,}
 \item{\code{f\_min} - if positive, pathway rate threshold in units of [molec. cm$^{-3}$$s^{-1}$], i.e. pathways with a rate smaller than \code{f\_min} will be deleted, otherwise it is disregarded.}
+\item{\code{global\_kin} - boolean parameter. If \code{1} (or \code{true})} \pump{} will interpret the input files as from Global\_Kin, otherwise from ZDPlaskin.
 \end{itemize}
-The order of parameters in the input file should be exactly like in the table (\ref{eq:aram}). The names of parameters are not important. Currently, \pump{} 
-reads files with the output format of ZDPlasKin. The \pump{} package 
+\end{description}
+
+The order of parameters in the input file should be exactly like in the table (\ref{eq:aram}). The names of parameters are not important. On the other hand, the names of input files are very important. In order to keep compatibility with VMS/VAX systems, the input files can be all in capitals, except the \file{input.txt}. Currently, \pump{} 
+is fully compatible with the output formats of ZDPlasKin~\cite{Zdplaskin,Flitti2009/EPJAP,Qtplaskin} and Global\_Kin.  The \pump{} package 
 is distributed examples of input files. 
 
 %=============================================================================

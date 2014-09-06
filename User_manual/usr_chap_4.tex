@@ -4,11 +4,15 @@
 \chapter{Examples}
 \label{chap_4}
 
-\pump{} is distributed with two sets of input files:
+The most current version of \pump{} (versions 1.1 and higher) is coming with a native support of ZDPlasKin and Global$\_$Kin modeling platforms.
+
+\section{ZDPlasKin Examples}
+
+\pump{} is distributed with two sets of input files from ZDPlasKin:
 \begin{display}
 \begin{verbatim}
-pumpkin-X.Y/src/Examples/Input_10
-pumpkin-X.Y/src/Examples/Input_20
+pumpkin-X.Y/src/Examples/ZDPlasKin/Input_10
+pumpkin-X.Y/src/Examples/ZDPlasKin/Input_20
 \end{verbatim}
 \end{display}
 
@@ -18,7 +22,7 @@ Both examples are the outputs of the zero-dimensional plasma kinetic solver ZDPl
 \frac{d[n_i]}{dt}=S_i\,,
 \end{equation}
 where the source term $S_i$  is the total production and destruction rate of species $i$ in various processes. 
-The adapted version of the kinetic file for N$_2$-O$_2$ mixtures (dry air) from ZDPlasKin~\cite{Sergey2008,Flitti2009} is used, which consists of 650 reactions and 53 species from the table \ref{tab:Species-considered}. 
+The adapted version of the kinetic file for N$_2$-O$_2$ mixtures (dry air) from ZDPlasKin~\cite{Zdplaskin,Flitti2009/EPJAP} is used, which consists of 650 reactions and 53 species from the table \ref{tab:Species-considered}. 
 
 A complete list of plasma chemical precesses in N$_2$-O$_2$ mixtures is taken mainly from~\cite{Capitelli2000/book}. Transport parameters and constant rates for electron-neutral interactions are calculated using 
 the BOLSIG+ solver built-in into the ZDPlasKin. As initial value of the electron density we use $n_e(0) = $ $4.0\dexp{13}\units{cm^{-3}}$. 
@@ -60,8 +64,9 @@ NO$^{-}$, NO$_{2}^{-}$, NO$_{3}^{-}$, N$_{2}^{-}$O\tabularnewline
 \end{tabular}
 \end{table}
 
+\section{Global$\_$Kin Examples}
 
-
+Available soon.
 
 
 
