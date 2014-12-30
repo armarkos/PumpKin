@@ -59,7 +59,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Volumes/HDD/Work_in_progress/PumpKin/src/Examples_Liberman"
+            argument = "/Volumes/HDD/Work_in_progress/PumpKin/src/Examples/Global_Kin_new"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
