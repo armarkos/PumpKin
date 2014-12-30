@@ -14,7 +14,7 @@ Before installing \pump{}, the user should have installed the GLPK package. For 
 
 \subsection{Unpackaing the Distribution File}
 \label{sec_2_1_1}
-The \pump{} package is distributed in the form of a packed archive (a \textit{tarball}). It is one file named \file{pumpkin-X.Y.tar.gz}, where \file{X} is the major version number and \file{Y} is the minor version number; for example, the archive name might be \file{pumpkin-1.0.tar.gz}. In order to prepare the distribution for installation you should:
+The \pump{} package is distributed in the form of a packed archive (a \textit{tarball}). It is one file named \file{pumpkin-X.Y.tar.gz}, where \file{X} is the major version number and \file{Y} is the minor version number; for example, the archive name might be \file{pumpkin-1.1.tar.gz}. In order to prepare the distribution for installation you should:
 
 \begin{enumerate}
   \item [1.] {Copy the \pump{} distribution file to a working directory.}
@@ -72,23 +72,26 @@ where \file{[input folder]} is the location of the input folder. If the user doe
 
 \subsection{Running Built-in Examples}
 \label{sec_2_1_4}
-\pump{} is distributed with two example folders which are discussed in section~\ref{chap_4}. Examples are located in the following folders:
+The most current version of \pump{} (versions 1.1 and higher) is coming with a native support of ZDPlasKin and Global$\_$Kin modeling platforms.
+
+\pump{} is distributed with the following example folders which are discussed in section~\ref{chap_4}. Examples are located in the following folders:
 \begin{display}
 \begin{verbatim}
-pumpkin-X.Y/src/Examples/Input_10
-pumpkin-X.Y/src/Examples/Input_20
+pumpkin-X.Y/src/Examples/ZDPlasKin/Input_10
+pumpkin-X.Y/src/Examples/ZDPlasKin/Input_20
 \end{verbatim}
 \end{display}
-The user can execute apply \pump{} to the examples by:
+The user can run \pump{} with the examples by:
 \begin{display}
 \begin{verbatim}
-./pumpkin Examples/Input_10
+./pumpkin Examples/ZDPlasKin/Input_10
+./pumpkin Examples/ZDPlasKin/Input_20
 \end{verbatim}
 \end{display}
 or by
 \begin{display}
 \begin{verbatim}
-./pumpkin Examples/Input_20
+./pumpkin Examples/Global_Kin
 \end{verbatim}
 \end{display}
 

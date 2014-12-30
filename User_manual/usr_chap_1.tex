@@ -3,16 +3,13 @@
 
 \chapter{Introduction}
 \label{chap_1}
-%ToDo search for ? for broken references
-%ToDo change the license of PumpKin 1.0 from gnu 3 to gnu 2
-%ToDo in program bring this message "<program>  Copyright (C) <year>  <name of author> This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details."
 \pump{} is a user-friendly software package to find all principal pathways, i.e. the dominant reaction sequences, in chemical reaction systems. The goal is to analyze the production and/or destruction mechanisms of a certain species of interest, as well as to reduce a complex plasma chemistry models.
 
 \pump{} was developed by Aram H. Markosyan at CWI (Centrum Wis\-kunde \& Informatica), Amsterdam under the STW project 10751 ``Transient plasmas for air purification'' and at IAA-CSIC (Instituto de Astrofísica de Andalucía - CSIC), Granada during short visits of A.H. Markosyan to Dr. F.J. Gordillo-V\'{a}zquez and Dr. A. Luque under the ESF (European Science Foundation) grants 5697, 5698, 5297 within the TEA-IS (Thunderstorm effects on the atmosphere-ionosphere system) activities. A. Luque contributed to the checking and validation of the code.
 
-\pump{} is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License (as published by the Free Software Foundation) version 2.1 dated February 1999. \pump{} can be downloaded from the following address: \url{www.pumpkin-tool.org}.
+\pump{} is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License (as published by the Free Software Foundation) version 2. \pump{} can be downloaded from the following address: \url{www.pumpkin-tool.org}.
 
-You should have received a copy of the GNU General Public License along with this program; if not, contact Aram H. Markosyan at \url{aram.math@gmail.com} or write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+You should have received a copy of the GNU General Public License along with this program; if not, contact Aram H. Markosyan at \url{armarkos@umich.edu} or write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
 
 %=============================================================================
 
@@ -27,7 +24,7 @@ You should have received a copy of the GNU General Public License along with thi
 \item {GNU g++ 3.32 or higher.}
 \item {LLVM 3.2 or higher}
 \end{itemize}}
-\item {GLPK (GNU linear programming kit) must be installed~\cite{Glpk}. This allows \pump{} to solve large-scale linear programming (LP) problems. GLPK can be downloaded from \url{www.gnu.org/software/glpk/}. We have tested \pump{} with GLPK recent version 4.32.}
+\item {GLPK (GNU linear programming kit) must be installed~\cite{Glpk}. This allows \pump{} to solve large-scale linear programming (LP) problems. GLPK can be downloaded from \url{www.gnu.org/software/glpk/}. We have tested \pump{} with GLPK version higher than 4.32.}
 \end{itemize}
 The recommended system requirements depend on the choice of the input parameters and the problem size. As a reference, in a MacBook Pro 15-inch (Mid 2010) with a CPU Intel Core i5 at 2.4 GHz, 4 GB (1067 MHz DDR3) of RAM memory and the operating system Mac OS X 10.9, \pump{} runs the examples from the section~\ref{chap_4} in about 30 seconds. When the input files are large, \pump{} will require more time to load them into the computer memory.
 

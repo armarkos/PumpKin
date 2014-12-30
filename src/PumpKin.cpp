@@ -2,10 +2,10 @@
 //  PumpKin.cpp
 //  PumpKin
 //
-//  Version 1.0
+//  Version 1.1
 //
 //  Created by Aram H. Markosyan on 9/21/13.
-//  Copyright (c) 2013 Aram H. Markosyan. All rights reserved.
+//  Copyright (c) 2013 - 2014 Aram H. Markosyan. All rights reserved.
 //
 //
 // This file is part of PumpKin (see http://www.pumpkin-tool.org).
@@ -29,6 +29,7 @@
 #include "pk_IO.h"
 #include "pk_DataTypes.h"
 #include "pk_Pathways.h"
+#include "pk_Print.h"
 
 using namespace std;
 
@@ -42,6 +43,7 @@ double tau_lifetime;
 int interest;
 int max_path;
 int max_bp;
+bool global_kin;
 
 int main(int argc, const char * argv[])
 {
@@ -50,6 +52,8 @@ int main(int argc, const char * argv[])
     if (argc > 1) folder = string(argv[1]);
     
     cout.precision(12);
+    
+    Print_license();
     
     In_data kinetics;               // Keeps all input data
     Rates   rates;                  // Keeps all total rates
