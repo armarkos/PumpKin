@@ -2,10 +2,10 @@
 //  pk_Pathways.cpp
 //  PumpKin
 //
-//  Version 1.1
+//  Version 1.2
 //
 //  Created by Aram H. Markosyan on 9/21/13.
-//  Copyright (c) 2013 - 2014 Aram H. Markosyan. All rights reserved.
+//  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
 //
 //
 // This file is part of PumpKin (see http://www.pumpkin-tool.org).
@@ -373,10 +373,10 @@ void Insignificant(vector<pathway> &PATHS,
             PATHS[i].deleted = true;
             Update_deleted(PATHS[i], rates, PATHS[i].f_k);
         }
-//        } else if (PATHS[i].f_k == 0.0) {
-//            PATHS[i].deleted = true;
-//            Update_deleted(PATHS[i], rates, PATHS[i].f_k);
-//        }
+        //        } else if (PATHS[i].f_k == 0.0) {
+        //            PATHS[i].deleted = true;
+        //            Update_deleted(PATHS[i], rates, PATHS[i].f_k);
+        //        }
     }
 
     size_t temp = PATHS.size();
@@ -813,7 +813,7 @@ void Splitting(vector<pathway>    &PATHS,
         {
             PATHS[i].deleted = false;
             doublearray1d w_k(Elementary[i].EL_pathways.size());
-            
+
             for (int temp = 0; temp < Elementary[i].EL_pathways.size(); temp++)
                 Factorise(Elementary[i].EL_pathways[temp]);
 
