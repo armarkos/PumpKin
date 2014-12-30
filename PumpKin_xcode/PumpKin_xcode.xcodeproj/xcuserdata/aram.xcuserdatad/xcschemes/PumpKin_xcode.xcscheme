@@ -57,6 +57,12 @@
             ReferencedContainer = "container:PumpKin_xcode.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "/Volumes/HDD/Work_in_progress/PumpKin/src/Examples_Liberman"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

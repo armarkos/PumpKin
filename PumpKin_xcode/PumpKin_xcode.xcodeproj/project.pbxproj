@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24EDFB5719B0F5AE00B022D1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24EDFB5619B0F5AE00B022D1 /* main.cpp */; };
 		24EDFB5919B0F5AE00B022D1 /* PumpKin_xcode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24EDFB5819B0F5AE00B022D1 /* PumpKin_xcode.1 */; };
+		24EDFB6919B0F5D600B022D1 /* pk_Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24EDFB5F19B0F5D600B022D1 /* pk_Array.cpp */; };
+		24EDFB6A19B0F5D600B022D1 /* pk_IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24EDFB6219B0F5D600B022D1 /* pk_IO.cpp */; };
+		24EDFB6B19B0F5D600B022D1 /* pk_Pathways.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24EDFB6419B0F5D600B022D1 /* pk_Pathways.cpp */; };
+		24EDFB6C19B0F5D600B022D1 /* pk_Print.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24EDFB6619B0F5D600B022D1 /* pk_Print.cpp */; };
+		24EDFB6D19B0F5D600B022D1 /* PumpKin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 24EDFB6819B0F5D600B022D1 /* PumpKin.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +30,17 @@
 
 /* Begin PBXFileReference section */
 		24EDFB5319B0F5AE00B022D1 /* PumpKin_xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PumpKin_xcode; sourceTree = BUILT_PRODUCTS_DIR; };
-		24EDFB5619B0F5AE00B022D1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		24EDFB5819B0F5AE00B022D1 /* PumpKin_xcode.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PumpKin_xcode.1; sourceTree = "<group>"; };
+		24EDFB5F19B0F5D600B022D1 /* pk_Array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pk_Array.cpp; path = ../../src/pk_Array.cpp; sourceTree = "<group>"; };
+		24EDFB6019B0F5D600B022D1 /* pk_Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pk_Array.h; path = ../../src/pk_Array.h; sourceTree = "<group>"; };
+		24EDFB6119B0F5D600B022D1 /* pk_DataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pk_DataTypes.h; path = ../../src/pk_DataTypes.h; sourceTree = "<group>"; };
+		24EDFB6219B0F5D600B022D1 /* pk_IO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pk_IO.cpp; path = ../../src/pk_IO.cpp; sourceTree = "<group>"; };
+		24EDFB6319B0F5D600B022D1 /* pk_IO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pk_IO.h; path = ../../src/pk_IO.h; sourceTree = "<group>"; };
+		24EDFB6419B0F5D600B022D1 /* pk_Pathways.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pk_Pathways.cpp; path = ../../src/pk_Pathways.cpp; sourceTree = "<group>"; };
+		24EDFB6519B0F5D600B022D1 /* pk_Pathways.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pk_Pathways.h; path = ../../src/pk_Pathways.h; sourceTree = "<group>"; };
+		24EDFB6619B0F5D600B022D1 /* pk_Print.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pk_Print.cpp; path = ../../src/pk_Print.cpp; sourceTree = "<group>"; };
+		24EDFB6719B0F5D600B022D1 /* pk_Print.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pk_Print.h; path = ../../src/pk_Print.h; sourceTree = "<group>"; };
+		24EDFB6819B0F5D600B022D1 /* PumpKin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PumpKin.cpp; path = ../../src/PumpKin.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +73,16 @@
 		24EDFB5519B0F5AE00B022D1 /* PumpKin_xcode */ = {
 			isa = PBXGroup;
 			children = (
-				24EDFB5619B0F5AE00B022D1 /* main.cpp */,
+				24EDFB5F19B0F5D600B022D1 /* pk_Array.cpp */,
+				24EDFB6019B0F5D600B022D1 /* pk_Array.h */,
+				24EDFB6119B0F5D600B022D1 /* pk_DataTypes.h */,
+				24EDFB6219B0F5D600B022D1 /* pk_IO.cpp */,
+				24EDFB6319B0F5D600B022D1 /* pk_IO.h */,
+				24EDFB6419B0F5D600B022D1 /* pk_Pathways.cpp */,
+				24EDFB6519B0F5D600B022D1 /* pk_Pathways.h */,
+				24EDFB6619B0F5D600B022D1 /* pk_Print.cpp */,
+				24EDFB6719B0F5D600B022D1 /* pk_Print.h */,
+				24EDFB6819B0F5D600B022D1 /* PumpKin.cpp */,
 				24EDFB5819B0F5AE00B022D1 /* PumpKin_xcode.1 */,
 			);
 			path = PumpKin_xcode;
@@ -117,7 +139,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24EDFB5719B0F5AE00B022D1 /* main.cpp in Sources */,
+				24EDFB6919B0F5D600B022D1 /* pk_Array.cpp in Sources */,
+				24EDFB6C19B0F5D600B022D1 /* pk_Print.cpp in Sources */,
+				24EDFB6D19B0F5D600B022D1 /* PumpKin.cpp in Sources */,
+				24EDFB6A19B0F5D600B022D1 /* pk_IO.cpp in Sources */,
+				24EDFB6B19B0F5D600B022D1 /* pk_Pathways.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,14 +223,84 @@
 		24EDFB5D19B0F5AE00B022D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				OTHER_LDFLAGS = "-lglpk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				USER_HEADER_SEARCH_PATHS = /opt/local/include;
 			};
 			name = Debug;
 		};
 		24EDFB5E19B0F5AE00B022D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				OTHER_LDFLAGS = "-lglpk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				USER_HEADER_SEARCH_PATHS = /opt/local/include;
 			};
 			name = Release;
 		};
@@ -227,6 +323,7 @@
 				24EDFB5E19B0F5AE00B022D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,7 +9,7 @@
 //
 //
 // This file orginally was written by Jorge Balbas and Eitan Tadmor, Nov. 2004. 
-// The present version extends the original functionality nad now it is part of 
+// The present version extends the original functionality and now it is part of 
 // PumpKin (see http://www.pumpkin-tool.org). Please see the Copyright_and_License 
 // file for the copyright notice, disclaimer, contact information and the License.
 //

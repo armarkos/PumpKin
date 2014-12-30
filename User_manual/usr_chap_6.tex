@@ -195,7 +195,7 @@ Even when the total number of reactions is relatively low, \pump{} may generate 
 
 \subsection{Sub-Pathways.}
 \label{sec2c5}
-In section \ref{sec2c4} we discussed the procedure to limit the growth of total number of pathways in our algorithm.  On the other hand, when two pathways are connected, it may happen that the resulting reaction sequence in unnecessarily complicated, i.e. it contains other pathways as sub-pathways. 
+In section \ref{sec2c4} we discussed the procedure to limit the growth of total number of pathways in our algorithm.  On the other hand, when two pathways are connected, it may happen that the resulting reaction sequence is unnecessarily complicated, i.e. it contains other pathways as sub-pathways. 
 
 As described in section \ref{sec2c4}, we often eliminate ``insignificant'' pathways; so it is not enough to check whether other pathways constructed so far are sub-pathways of $P_n$.  Instead, for a given pathway $P_n$ we determine all elementary sub-pathways $P'_k$, $k=1,\ldots,n_{P'}$, using the algorithm by Schuster and Schuster~\cite{Schuster1993refined, Lehmann2004/JAC}. This method has a limitation, namely, it requires that all intermediate species, i.e. branching-points, are at steady state
 \begin{equation}
