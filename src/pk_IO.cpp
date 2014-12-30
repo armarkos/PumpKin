@@ -2,10 +2,10 @@
 //  pk_IO.cpp
 //  PumpKin
 //
-//  Version 1.0
+//  Version 1.1
 //
 //  Created by Aram H. Markosyan on 9/21/13.
-//  Copyright (c) 2013 Aram H. Markosyan. All rights reserved.
+//  Copyright (c) 2013 - 2014 Aram H. Markosyan. All rights reserved.
 //
 //
 // This file is part of PumpKin (see http://www.pumpkin-tool.org).
@@ -24,9 +24,36 @@
 // Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 //
 
-
-
 #include "pk_IO.h"
+
+// Print license information
+void Print_license()
+{
+    cout<<"+++**********************************************************************+++"<<endl;
+    cout<<"+++                                                                      +++"<<endl;
+    cout<<"+++ PumpKin: A tool to find principal pathways in plasma chemical models +++"<<endl;
+    cout<<"+++ Copyright\u00A9 2013-2014 Aram H Markosyan.                               +++"<<endl;
+    cout<<"+++                                                                      +++"<<endl;
+    cout<<"+++ This program is free software; you can redistribute it and/or        +++"<<endl;
+    cout<<"+++ modify it under the terms of the GNU General Public License          +++"<<endl;
+    cout<<"+++ as published by the Free Software Foundation; either version 2       +++"<<endl;
+    cout<<"+++ of the License, or (at your option) any later version.               +++"<<endl;
+    cout<<"+++ This program is distributed in the hope that it will be useful,      +++"<<endl;
+    cout<<"+++ but WITHOUT ANY WARRANTY; without even the implied warranty of       +++"<<endl;
+    cout<<"+++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        +++"<<endl;
+    cout<<"+++ GNU General Public License for more details.                         +++"<<endl;
+    cout<<"+++                                                                      +++"<<endl;
+    cout<<"+++ Point of Contact:   Dr. Aram H. Markosyan                            +++"<<endl;
+    cout<<"+++ Address: University of Michigan, Electrical Engineering and Computer +++"<<endl;
+    cout<<"+++ Science Department, 1301 Beal Ave, Ann Arbor, MI 48109-2122          +++"<<endl;
+    cout<<"+++ Email: armarkos@umich.edu                                            +++"<<endl;
+    cout<<"+++ Tel: 734-647-4840                                                    +++"<<endl;
+    cout<<"+++ Homepage: http://markosyanaram.com                                   +++"<<endl;
+    cout<<"+++                                                                      +++"<<endl;
+    cout<<"+++**********************************************************************+++"<<endl;
+    
+    cout<<endl<<endl;
+}
 
 // Reads input kinetic model
 void Read_kin(In_data&      kinetics,
@@ -38,9 +65,9 @@ void Read_kin(In_data&      kinetics,
         ifstream input_file("Input/input.txt");
         if (!input_file) {
             input_file.close();
-            input_file.open("/Users/Apple/Documents/PumpKin/Input/input.txt");
+            input_file.open("/Users/Apple/Devel/PumpKin/Input/input.txt");
             if (input_file) {
-                m_folder = "/Users/Apple/Documents/PumpKin/Input/";
+                m_folder = "/Users/Apple/Devel/PumpKin/Input/";
                 input_file.close();
             }else {
                 /* could not open directory */
@@ -66,7 +93,7 @@ void Read_kin(In_data&      kinetics,
     }
     
     string line;
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 8; i++) {
         getline(file,line);
         string temp1;
         istringstream iss(line);
@@ -79,6 +106,7 @@ void Read_kin(In_data&      kinetics,
         if (i == 4) iss>>tau_lifetime;
         if (i == 5) iss>>max_path;
         if (i == 6) iss>>f_min;
+        if (i == 7) iss>>global_kin;
     }
     
     file.close();
@@ -90,35 +118,44 @@ void Read_kin(In_data&      kinetics,
     }
     
     Read_species(kinetics, m_folder);
-    Read_matrix(kinetics, m_folder);
+    Read_reactions(kinetics, m_folder);
     Read_time(kinetics, m_folder);
     Read_density(kinetics, m_folder);
     Read_rates(kinetics, m_folder);
-    Read_reactions(kinetics, m_folder);
+    Read_matrix(kinetics, m_folder);
 }
 
 // Reads species from files
 void Read_species(In_data&      kinetics,
                   const string& m_folder)
 {
-    string filename = m_folder+"qt_species_list.txt";
-    ifstream file(filename.c_str());
-    if (!file) {
-        // file couldn't be opened
-        cerr << "Error: File containing the list of species could not be opened" << endl;
-        exit(1);
-    }
+    ifstream file;
+    string filename_1 = m_folder+"qt_species_list.txt";
+    string filename_2 = m_folder+"QT_SPECIES_LIST.TXT"; // In case of VAX/VMS Operating systems
+    ifstream file_1(filename_1.c_str());
+    if (!file_1) {
+        ifstream file_2(filename_2.c_str());
+        if (!file_2) {
+            // file couldn't be opened
+            cerr << "Error: File containing the list of species could not be opened" << endl;
+            exit(1);
+        } else file.open(filename_2.c_str());
+    } else file.open(filename_1.c_str());
     
+    // Read file line by line
     string line;
-    int i = 0;
     while(getline(file,line)) {
         string temp = line.substr(line.find(" ",1)+1);
-        temp.erase(std::find_if(temp.rbegin(), temp.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), temp.end());
-        if (temp != "") {
+        if (global_kin == NULL)
+            temp.erase(std::find_if(temp.rbegin(), temp.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), temp.end());
+        else
+            if ( line.size() < 2 )
+                break;
+        
+        if (temp != "")
             kinetics.species.push_back(temp);
-            i = i + 1;
-        }
     }
+
     n_S = kinetics.species.size();
     file.close();
 }
@@ -127,52 +164,74 @@ void Read_species(In_data&      kinetics,
 void Read_matrix(In_data&      kinetics,
                  const string& m_folder)
 {
-    string filename = m_folder+"qt_matrix.txt";
-    ifstream file(filename.c_str());
-    if (!file) {
-        // file couldn't be opened
-        cerr << "Error: File containing the stoichiometric matrix could not be opened" << endl;
-        exit(1);
-    }
+    ifstream file;
+    string filename_1 = m_folder+"qt_matrix.txt";
+    string filename_2 = m_folder+"QT_MATRIX.TXT"; // In case of VAX/VMS Operating systems
+    ifstream file_1(filename_1.c_str());
+    if (!file_1) {
+        ifstream file_2(filename_2.c_str());
+        if (!file_2) {
+            // file couldn't be opened
+            cerr << "Error: File containing the stoichiometric matrix could not be opened" << endl;
+            exit(1);
+        } else file.open(filename_2.c_str());
+    } else file.open(filename_1.c_str());
     
-    //matrix.resize(m_num_s);
-    string line;
-    int i = 0;
-    n_R = 100000000;
-    while(getline(file,line)) {
-        if (!Check_file_line(line)){
-            cout<<"Error: The stoichiometric matrix contains inf values!"<<endl;
-            exit (EXIT_FAILURE);
-        }
-        
-        int j = 0;
-        istringstream iss(line);
-        int val;
-        
-        if (i == 0) {
-            vector<int> temp;
-            while (iss>>val) {
-                temp.push_back(val);
-                j++;
+    if (global_kin == NULL) {
+        string line;
+        int i = 0;
+        n_R = 100000000;
+        while(getline(file,line)) {
+            if (!Check_file_line(line)){
+                cout<<"Error: The stoichiometric matrix contains inf values!"<<endl;
+                exit (EXIT_FAILURE);
             }
-            n_R = j;
-            kinetics.matrix.initialize(n_S, n_R);
-            for (int k = 0; k < n_R; k++) kinetics.matrix(i,k) = temp[k];
-        } else {
-            while (iss>>val) {
-                kinetics.matrix(i,j) = val;
-                j++;
+            
+            int j = 0;
+            istringstream iss(line);
+            int val;
+            
+            if (i == 0) {
+                vector<int> temp;
+                while (iss>>val) {
+                    temp.push_back(val);
+                    j++;
+                }
+                n_R = j;
+                kinetics.matrix.initialize(n_S, n_R);
+                for (int k = 0; k < n_R; k++) kinetics.matrix(i,k) = temp[k];
+            } else {
+                while (iss>>val) {
+                    kinetics.matrix(i,j) = val;
+                    j++;
+                }
+            }
+            i++;
+            if (n_R == 100000000) n_R = j;
+            else {
+                if (n_R != j) {
+                    cerr << "Something is wrong with stoichiometric matrix" << endl;
+                    exit(1);
+                }
             }
         }
-        i++;
-        if (n_R == 100000000) n_R = j;
-        else {
-            if (n_R != j) {
-                cerr << "Something is wrong with stoichiometric matrix" << endl;
-                exit(1);
+    } else {
+        string line;
+        double temp;
+        kinetics.matrix.initialize(n_S, n_R);
+        for (int i = 0; i < n_S; i++) {
+            for (int j = 0; j < n_R; j++) {
+                getline(file,line);
+                if (!Check_file_line(line)){
+                    cout<<"Error: The the file containing densities contains non-integer values!"<<endl;
+                    exit (EXIT_FAILURE);
+                } else if ( line.size() < 2 ) break;
+                istringstream iss(line);
+                iss>>kinetics.matrix(i,j);
             }
         }
     }
+
     file.close();
 }
 
@@ -197,16 +256,22 @@ bool Check_file_line(string& line)
 void Read_time(In_data&      kinetics,
                const string& m_folder)
 {
-    string filename = m_folder+"qt_conditions.txt";
-    ifstream file(filename.c_str());
+    ifstream file;
+    string filename_1 = m_folder+"qt_conditions.txt";
+    string filename_2 = m_folder+"QT_CONDITIONS.TXT"; // In case of VAX/VMS Operating systems
+    ifstream file_1(filename_1.c_str());
+    if (!file_1) {
+        ifstream file_2(filename_2.c_str());
+        if (!file_2) {
+            // file couldn't be opened
+            cerr << "Error: File containing time could not be opened" << endl;
+            exit(1);
+        } else file.open(filename_2.c_str());
+    } else file.open(filename_1.c_str());
     
-    if (!file) {
-        // file couldn't be opened
-        cerr << "Error: File containing time could not be opened" << endl;
-        exit(1);
+    if (global_kin == NULL) {
+        file.ignore(2000, '\n');
     }
-    
-    file.ignore(2000, '\n');
     string line;
     int i = 0;
     vector<double> temp;
@@ -214,13 +279,14 @@ void Read_time(In_data&      kinetics,
         if (!Check_file_line(line)){
             cout<<"Error: The the file containing time contains inf values!"<<endl;
             exit (EXIT_FAILURE);
-        }
+        } else if ( line.size() < 2 ) break;
         istringstream iss(line);
         double val;
         iss>>val;
         temp.push_back(val);
         i++;
     }
+    
     n_t = i;
     kinetics.time.initialize(n_t);
     for (int i = 0; i < n_t; i++) kinetics.time(i) = temp[i];
@@ -232,35 +298,57 @@ void Read_time(In_data&      kinetics,
 void Read_density(In_data&      kinetics,
                   const string& m_folder)
 {
-    string filename = m_folder+"qt_densities.txt";
-    ifstream file(filename.c_str());
-    if (!file) {
-        // file couldn't be opened
-        cerr << "Error: File containing densities could not be opened" << endl;
-        exit(1);
-    }
+    ifstream file;
+    string filename_1 = m_folder+"qt_densities.txt";
+    string filename_2 = m_folder+"QT_DENSITIES.TXT"; // In case of VAX/VMS Operating systems
+    ifstream file_1(filename_1.c_str());
+    if (!file_1) {
+        ifstream file_2(filename_2.c_str());
+        if (!file_2) {
+            // file couldn't be opened
+            cerr << "Error: File containing densities could not be opened" << endl;
+            exit(1);
+        } else file.open(filename_2.c_str());
+    } else file.open(filename_1.c_str());
     
-    file.ignore(200000, '\n');
     kinetics.densities.resize(n_t);
     
-    string line;
-    double temp;
-    for (int i = 0; i < n_t; i++) {
-        kinetics.densities[i].resize(n_S);
-        getline(file,line);
-        if (!Check_file_line(line)){
-            cout<<"Error: The the file containing densities contains non-integer values!"<<endl;
-            exit (EXIT_FAILURE);
+    if (global_kin == NULL) {
+        file.ignore(200000, '\n');
+
+        string line;
+        double temp;
+        for (int i = 0; i < n_t; i++) {
+            kinetics.densities[i].resize(n_S);
+            getline(file,line);
+            if (!Check_file_line(line)){
+                cout<<"Error: The the file containing densities contains non-integer values!"<<endl;
+                exit (EXIT_FAILURE);
+            }
+            istringstream iss(line);
+            iss>>temp;
+            int j = 0;
+            while (j < n_S) {
+                iss>>kinetics.densities[i](j);
+                j++;
+            }
         }
-        istringstream iss(line);
-        iss>>temp;
-        int j = 0;
-        while (j < n_S) {
-            iss>>kinetics.densities[i](j);
-            j++;
+    } else {
+        string line;
+        double temp;
+        for (int i = 0; i < n_t; i++) {
+            kinetics.densities[i].resize(n_S);
+            for (int j = 0; j < n_S; j++) {
+                getline(file,line);
+                if (!Check_file_line(line)){
+                    cout<<"Error: The the file containing densities contains non-integer values!"<<endl;
+                    exit (EXIT_FAILURE);
+                } else if ( line.size() < 2 ) break;
+                istringstream iss(line);
+                iss>>kinetics.densities[i](j);
+            }
         }
     }
-    
     file.close();
 }
 
@@ -269,33 +357,54 @@ void Read_density(In_data&      kinetics,
 void Read_rates(In_data&      kinetics,
                 const string& m_folder)
 {
-    string filename = m_folder+"qt_rates.txt";
-    ifstream file(filename.c_str());
+    ifstream file;
+    string filename_1 = m_folder+"qt_rates.txt";
+    string filename_2 = m_folder+"QT_RATES.TXT"; // In case of VAX/VMS Operating systems
+    ifstream file_1(filename_1.c_str());
+    if (!file_1) {
+        ifstream file_2(filename_2.c_str());
+        if (!file_2) {
+            // file couldn't be opened
+            cerr << "Error: The file containing rates could not be opened" << endl;
+            exit(1);
+        } else file.open(filename_2.c_str());
+    } else file.open(filename_1.c_str());
     
-    if (!file) {
-        // file couldn't be opened
-        cerr << "Error: The file containing rates could not be opened" << endl;
-        exit(1);
-    }
-    
-    file.ignore(200000, '\n');
     kinetics.rates.resize(n_t);
     
-    string line;
-    double temp;
-    for (int i = 0; i < n_t; i++) {
-        kinetics.rates[i].resize(n_R);
-        getline(file,line);
-        if (!Check_file_line(line)){
-            cout<<"Error: The file containing rates contains non-integer values!"<<endl;
-            exit (EXIT_FAILURE);
+    if (global_kin == NULL) {
+        file.ignore(200000, '\n');
+        string line;
+        double temp;
+        for (int i = 0; i < n_t; i++) {
+            kinetics.rates[i].resize(n_R);
+            getline(file,line);
+            if (!Check_file_line(line)){
+                cout<<"Error: The file containing rates contains non-integer values!"<<endl;
+                exit (EXIT_FAILURE);
+            }
+            istringstream iss(line);
+            iss>>temp;
+            int j = 0;
+            while (j < n_R) {
+                iss>>kinetics.rates[i](j);
+                j++;
+            }
         }
-        istringstream iss(line);
-        iss>>temp;
-        int j = 0;
-        while (j < n_R) {
-            iss>>kinetics.rates[i](j);
-            j++;
+    } else {
+        string line;
+        double temp;
+        for (int i = 0; i < n_t; i++) {
+            kinetics.rates[i].resize(n_R);
+            for (int j = 0; j < n_R; j++) {
+                getline(file,line);
+                if (!Check_file_line(line)){
+                    cout<<"Error: The the file containing densities contains non-integer values!"<<endl;
+                    exit (EXIT_FAILURE);
+                } else if ( line.size() < 2 ) break;
+                istringstream iss(line);
+                iss>>kinetics.rates[i](j);
+            }
         }
     }
     
@@ -307,30 +416,41 @@ void Read_rates(In_data&      kinetics,
 void Read_reactions(In_data&      kinetics,
                     const string& m_folder)
 {
-    string filename = m_folder+"qt_reactions_list.txt";
-    ifstream file(filename.c_str());
-    
-    if (!file) {
-        // file couldn't be opened
-        cerr << "Error: File containing the list of reactions could not be opened" << endl;
-        exit(1);
-    }
+    ifstream file;
+    string filename_1 = m_folder+"qt_reactions_list.txt";
+    string filename_2 = m_folder+"QT_REACTION_LIST.TXT"; // In case of VAX/VMS Operating systems
+    ifstream file_1(filename_1.c_str());
+    if (!file_1) {
+        ifstream file_2(filename_2.c_str());
+        if (!file_2) {
+            // file couldn't be opened
+            cerr << "Error: File containing the list of reactions could not be opened" << endl;
+            exit(1);
+        } else file.open(filename_2.c_str());
+    } else file.open(filename_1.c_str());
+
     
     int i = 1;
-    string line;
+    string line, temp;
     while(getline(file,line)) {
-        stringstream ss; ss << i; string index = ss.str();
-        string temp = line.substr(line.find(index)+index.size()+1);
-        //string temp = line.substr(line.find(" ")+1);
-        temp.erase(std::find_if(temp.rbegin(), temp.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), temp.end());
+        if (global_kin == NULL) {
+            stringstream ss; ss << i; string index = ss.str();
+            temp = line.substr(line.find(index)+index.size()+1);
+            //string temp = line.substr(line.find(" ")+1);
+            temp.erase(std::find_if(temp.rbegin(), temp.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), temp.end());
+        } else {
+            temp = line.substr(0);
+            if ( line.find(">") == string::npos ) break;
+
+        }
+        
         if (temp != "") kinetics.reactions.push_back(temp);
         i++;
+        
+        temp = "";
     }
     
-    if (kinetics.reactions.size() != n_R) {
-        cout<<"Error: Check number of reactions."<<endl;
-    	exit (EXIT_FAILURE);
-    }
+    n_R = kinetics.reactions.size();
     file.close();
 }
 

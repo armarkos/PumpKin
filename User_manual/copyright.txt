@@ -1,5 +1,5 @@
 PumpKin: A tool to find principal pathways in plasma chemical models
-\\Copyright \copyright{} 2014 Aram H Markosyan. 
+\\Copyright \copyright{} 2013 - 2014 Aram H Markosyan. 
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@ A.H. Markosyan, A. Luque, F. J. Gordillo-Vázquez, U. Ebert, \textit{PumpKin: A 
 Point of Contact:	Dr. Aram H. Markosyan
 
 Address: University of Michigan, Electrical Engineering and Computer Science Department, 1301 Beal Ave, Ann Arbor, MI 48109-2122
-\\Email: \href{mailto:aram.math@gmail.com}{aram.math@gmail.com}
+\\Email: \href{mailto:armarkos@umich.edu}{armarkos@umich.edu}
 \\Tel: 734-647-4840
 \\Homepage: \url{http://markosyanaram.com}
 

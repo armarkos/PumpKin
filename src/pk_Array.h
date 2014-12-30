@@ -2,14 +2,14 @@
 //  pk_Array.h
 //  PumpKin
 //
-//  Version 1.0
+//  Version 1.1
 //
 //  Created by Aram H. Markosyan on 9/21/13.
-//  Copyright (c) 2013 Aram H. Markosyan. All rights reserved.
+//  Copyright (c) 2013 - 2014 Aram H. Markosyan. All rights reserved.
 //
 //
 // This file orginally was written by Jorge Balbas and Eitan Tadmor, Nov. 2004. 
-// The present version extends the original functionality nad now it is part of 
+// The present version extends the original functionality and now it is part of 
 // PumpKin (see http://www.pumpkin-tool.org). Please see the Copyright_and_License 
 // file for the copyright notice, disclaimer, contact information and the License.
 //
