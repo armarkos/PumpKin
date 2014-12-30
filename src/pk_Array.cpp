@@ -2,10 +2,10 @@
 //  pk_Array.cpp
 //  PumpKin
 //
-//  Version 1.1
+//  Version 1.2
 //
 //  Created by Aram H. Markosyan on 9/21/13.
-//  Copyright (c) 2013 - 2014 Aram H. Markosyan. All rights reserved.
+//  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
 //
 // This file orginally was written by Jorge Balbas and Eitan Tadmor, Nov. 2004. 
 // The present version extends the original functionality nad now it is part of 
