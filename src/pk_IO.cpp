@@ -211,6 +211,13 @@ void Read_species(In_data      &kinetics,
         n_S = kinetics.species.size();
         file.close();
     }
+    
+    if ((interest > 0) && (n_S < interest))
+    {
+        cerr << "Error: The species of interet is not in your chemistry file." << endl;
+        cerr << "You have only " << n_S <<" species." << endl;
+        exit(1);
+    }
 }
 
 // Reads the stoichiometric matrix from files
@@ -680,7 +687,7 @@ void Read_reactions(In_data      &kinetics,
     {
         ifstream file;
         string filename_1 = m_folder + "pumpkin_reactions_list.txt";
-        string filename_2 = m_folder + "PUMPKIN_REACTION_LIST.TXT"; // In case of VAX/VMS Operating systems
+        string filename_2 = m_folder + "PUMPKIN_REACTIONS_LIST.TXT"; // In case of VAX/VMS Operating systems
         ifstream file_1(filename_1.c_str());
         if (!file_1)
         {
