@@ -59,7 +59,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Volumes/HDD/Work_in_progress/PumpKin/src/Examples/ZDPlasKin/Input_10"
+            argument = "/Users/aram/Desktop/pumpkin"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
