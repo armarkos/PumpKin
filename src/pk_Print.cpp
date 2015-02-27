@@ -108,7 +108,7 @@ void Print_PATHS(const vector<pathway> &PATHS,
     printf("+---------------------------------------------------+"
            "---------------------------+\n");
 
-    for (size_t i = 0; i < PATHS.size(); i++)
+    for (int i = 0; i < PATHS.size(); i++)
     {
         cout.precision(3);
         if ((print_p(i) != 0.0) || (print_d(i) != 0.0) || true)

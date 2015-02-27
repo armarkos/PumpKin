@@ -141,7 +141,7 @@ void Read_kin(In_data      &kinetics,
 void Read_species(In_data      &kinetics,
                   const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_species_list.txt";
@@ -224,7 +224,7 @@ void Read_species(In_data      &kinetics,
 void Read_matrix(In_data      &kinetics,
                  const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_matrix.txt";
@@ -358,7 +358,7 @@ bool Check_file_line(string &line)
 void Read_time(In_data      &kinetics,
                const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_conditions.txt";
@@ -452,7 +452,7 @@ void Read_time(In_data      &kinetics,
 void Read_density(In_data      &kinetics,
                   const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_densities.txt";
@@ -548,7 +548,7 @@ void Read_density(In_data      &kinetics,
 void Read_rates(In_data      &kinetics,
                 const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_rates.txt";
@@ -644,7 +644,7 @@ void Read_rates(In_data      &kinetics,
 void Read_reactions(In_data      &kinetics,
                     const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_reactions_list.txt";

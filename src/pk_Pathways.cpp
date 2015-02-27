@@ -912,7 +912,7 @@ void Creat_LP(const pathway    &pw,
     Check if the problem is underdetermined.
 */
     // TODO: implement underdetermined case
-    if (pw.path.size() > element.EL_pathways.size())
+    if (pw.path.size() < element.EL_pathways.size())
     {
         cout<<endl;
         cout<<"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
