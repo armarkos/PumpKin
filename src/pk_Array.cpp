@@ -2,7 +2,7 @@
 //  pk_Array.cpp
 //  PumpKin
 //
-//  Version 1.2
+//  Version 1.3
 //
 //  Created by Aram H. Markosyan on 9/21/13.
 //  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
@@ -45,8 +45,7 @@ doublearray1d operator+(const doublearray1d& A1,
                         const doublearray1d& A2)
 {
     if (A1.getIndex1Size() != A2.getIndex1Size()) {
-        perror ("Array size mismatch!");
-        exit(EXIT_FAILURE);
+        throw "Array size mismatch!";
     }
     doublearray1d temp(A1.getIndex1Size());
     for (int i = 0; i < A1.getIndex1Size(); i++) {
@@ -60,8 +59,7 @@ doublearray1d operator-(const doublearray1d& A1,
                         const doublearray1d& A2)
 {
     if (A1.getIndex1Size() != A2.getIndex1Size()) {
-        perror ("Array size mismatch!");
-        exit(EXIT_FAILURE);
+        throw "Array size mismatch!";
     }
     doublearray1d temp(A1.getIndex1Size());
     for (int i = 0; i < A1.getIndex1Size(); i++) {
@@ -75,8 +73,7 @@ double operator*(const doublearray1d& A1,
                  const doublearray1d& A2)
 {
     if (A1.getIndex1Size() != A2.getIndex1Size()) {
-        perror ("Array size mismatch!");
-        exit(EXIT_FAILURE);
+        throw "Array size mismatch!";
     }
     double temp = 0;
     for (int i = 0; i < A1.getIndex1Size(); i++) {
@@ -447,12 +444,10 @@ doublearray2d operator+(const doublearray2d& A1,
                         const doublearray2d& A2)
 {
     if (A1.getIndex1Size() != A2.getIndex1Size()) {
-        perror ("Array size mismatch!");
-        exit(EXIT_FAILURE);
+        throw "Array size mismatch!";
     }
     if (A1.getIndex2Size() != A2.getIndex2Size()) {
-        perror ("Array size mismatch!");
-        exit(EXIT_FAILURE);
+        throw "Array size mismatch!";
     }
     
     doublearray2d temp(A1.getIndex1Size(), A1.getIndex2Size());
@@ -468,12 +463,10 @@ doublearray2d operator-(const doublearray2d& A1,
                         const doublearray2d& A2)
 {
     if (A1.getIndex1Size() != A2.getIndex1Size()) {
-        perror ("Array size mismatch!");
-        exit(EXIT_FAILURE);
+        throw "Array size mismatch!";
     }
     if (A1.getIndex2Size() != A2.getIndex2Size()) {
-        perror ("Array size mismatch!");
-        exit(EXIT_FAILURE);
+        throw "Array size mismatch!";
     }
     
     doublearray2d temp(A1.getIndex1Size(), A1.getIndex2Size());

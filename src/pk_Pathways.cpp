@@ -2,7 +2,7 @@
 //  pk_Pathways.cpp
 //  PumpKin
 //
-//  Version 1.2
+//  Version 1.3
 //
 //  Created by Aram H. Markosyan on 9/21/13.
 //  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
@@ -907,6 +907,24 @@ void Creat_LP(const pathway    &pw,
             A_0(element.EL_pathways[k].path[j], k) = element.EL_pathways[k].x_j[j];
 
     A.setToValue(0.0);
+    
+/*
+    Check if the problem is underdetermined.
+*/
+    // TODO: implement underdetermined case
+    if (pw.path.size() > element.EL_pathways.size())
+    {
+        cout<<endl;
+        cout<<"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+        cout<<endl;
+        cout<<"The LP problem is underdetermined. We suggest lowering the value of max_path."<<endl;
+        cout<<endl;
+        cout<<"We will address this case in upcoming versions."<<endl;
+        cout<<endl;
+        cout<<"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+        cout<<endl;
+        exit(EXIT_FAILURE);
+    }
     for (int i = 0; i < pw.path.size(); i++)
     {
         b(i) = pw.x_j[i];
