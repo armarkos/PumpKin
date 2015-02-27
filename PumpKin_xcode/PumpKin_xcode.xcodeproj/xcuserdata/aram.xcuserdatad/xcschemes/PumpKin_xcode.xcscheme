@@ -59,7 +59,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/aram/Desktop/pumpkin"
+            argument = "/Users/aram/Desktop/PumpkinInput"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
