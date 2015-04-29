@@ -647,7 +647,7 @@ void Read_reactions(In_data      &kinetics,
     if (global_kin == false)
     {
         ifstream file;
-        string filename_1 = m_folder + "qt_reactions_list.txt";
+        string filename_1 = m_folder + "qt_reaction_list.txt";
         string filename_2 = m_folder + "QT_REACTION_LIST.TXT"; // In case of VAX/VMS Operating systems
         ifstream file_1(filename_1.c_str());
         if (!file_1)
