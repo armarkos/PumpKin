@@ -2,7 +2,7 @@
 //  pk_Print.h
 //  PumpKin
 //
-//  Version 1.3
+//  Version 1.4
 //
 //  Created by Aram H. Markosyan on 9/21/13.
 //  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
@@ -41,8 +41,8 @@ void Print_pathway(const pathway &PATHWAY,
 
 // Printing all pathways
 void Print_PATHS(const vector<pathway> &PATHS,
-                 const Rates           &rates);
-
+                 const Rates           &rates,
+                 const int             &interst_species);
 
 // Printing double array in 2D
 void Print_doublearray2D(const doublearray2d &A);
@@ -54,12 +54,18 @@ void Print_report(const vector<pathway> &PATHS,
 
 // Printing all pathways according to specie of interest
 void Print_PATHS_for_specie(const vector<pathway> &PATHS,
-                            const Rates           &rates);
+                            const Rates           &rates,
+                            const int             &interst_species);
 
 // Printing all reduced system
 void Print_PATHS_reduce(const vector<pathway> &PATHS,
                         const Rates           &rates,
                         const In_data         &input);
+
+// Print interactive reports
+void Print_Results(const vector<pathway> &PATHS,
+                   const Rates           &rates,
+                   const vector<int>     &all_brenching_points);
 
 
 

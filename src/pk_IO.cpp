@@ -2,7 +2,7 @@
 //  pk_IO.cpp
 //  PumpKin
 //
-//  Version 1.3
+//  Version 1.4
 //
 //  Created by Aram H. Markosyan on 9/21/13.
 //  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
@@ -211,11 +211,11 @@ void Read_species(In_data      &kinetics,
         n_S = kinetics.species.size();
         file.close();
     }
-    
+
     if ((interest > 0) && (n_S < interest))
     {
         cerr << "Error: The species of interet is not in your chemistry file." << endl;
-        cerr << "You have only " << n_S <<" species." << endl;
+        cerr << "You have only " << n_S << " species." << endl;
         exit(1);
     }
 }
@@ -647,8 +647,8 @@ void Read_reactions(In_data      &kinetics,
     if (global_kin == false)
     {
         ifstream file;
-        string filename_1 = m_folder + "qt_reaction_list.txt";
-        string filename_2 = m_folder + "QT_REACTION_LIST.TXT"; // In case of VAX/VMS Operating systems
+        string filename_1 = m_folder + "qt_reactions_list.txt";
+        string filename_2 = m_folder + "QT_REACTIONS_LIST.TXT"; // In case of VAX/VMS Operating systems
         ifstream file_1(filename_1.c_str());
         if (!file_1)
         {
@@ -686,8 +686,8 @@ void Read_reactions(In_data      &kinetics,
     else
     {
         ifstream file;
-        string filename_1 = m_folder + "pumpkin_reactions_list.txt";
-        string filename_2 = m_folder + "PUMPKIN_REACTIONS_LIST.TXT"; // In case of VAX/VMS Operating systems
+        string filename_1 = m_folder + "pumpkin_reaction_list.txt";
+        string filename_2 = m_folder + "PUMPKIN_REACTION_LIST.TXT"; // In case of VAX/VMS Operating systems
         ifstream file_1(filename_1.c_str());
         if (!file_1)
         {
@@ -836,12 +836,14 @@ void interp_1(doublearray1d               &interpol,
     if (t < T(0))
     {
         cout << "Error: Wrong time period: t_init is out of kinetic model's time bounds." << endl;
+        cout << "Time zero is: " << T(0) << "\n";
         exit (EXIT_FAILURE);
     }
 
     if (t > T(n_t - 1))
     {
         cout << "Error: Wrong time period: t_end is out of kinetic model's time bounds." << endl;
+        cout << "End time is: " << T(n_t - 1) << "\n";
         exit (EXIT_FAILURE);
     }
 
