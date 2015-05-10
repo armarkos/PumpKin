@@ -70,6 +70,203 @@ void Print_pathway(const pathway &PATHWAY,
   cout << "---------------------------------------------" << endl << endl;
 }
 
+// Convert Global_Kin results to ZDPlasKin results
+void Global_Kin__to_ZDPlasKin(const In_data &kinetics,
+                              string        &folder)
+{
+  folder = folder + "/QtPlasKin";
+
+  ofstream file;
+  string filename;
+
+  // Creating the file "qt_conditions_list.txt"
+  filename = folder + "/qt_conditions_list.txt";
+  file.open(filename.c_str());
+
+  if (!file.is_open()) {
+    cout << "Can't open the file: qt_conditions_list.txt\n";
+    cout << "Create directory: " << folder << "\n";
+    exit(1);
+  }
+  else {
+    file << "  1 Reduced field [Td]\n";
+    file << "  2 Gas temperature [K]\n";
+    file << "  3 Electron temperature [K]\n";
+    file << "  4 Current density [A/cm2]\n";
+    file << "  5 Power density [W/cm3]\n";
+  }
+
+  file.close();
+
+  // Creating the file "qt_species_list.txt"
+  filename = folder + "/qt_species_list.txt";
+  file.open(filename.c_str());
+
+  if (!file.is_open()) {
+    cout << "Can't open the file: qt_species_list.txt\n";
+    cout << "Create directory: " << folder << "\n";
+    exit(1);
+  }
+  else {
+    for (size_t i = 0; i < kinetics.species.size(); i++) {
+      if (kinetics.species.size() > 100) {
+        if (i < 10)
+          file << "  " << i + 1 << " " << kinetics.species[i] << "\n";
+        else if (i < 100)
+          file << " " << i + 1 << " " << kinetics.species[i] << "\n";
+        else
+          file << i + 1 << " " << kinetics.species[i] << "\n";
+      } else {
+        if (i < 10)
+          file << " " << i + 1 << " " << kinetics.species[i] << "\n";
+        else
+          file << i + 1 << " " << kinetics.species[i] << "\n";
+      }
+    }
+  }
+
+  file.close();
+
+  // Creating the file "qt_reactions_list.txt"
+  filename = folder + "/qt_reactions_list.txt";
+  file.open(filename.c_str());
+
+  if (!file.is_open()) {
+    cout << "Can't open the file: qt_reactions_list.txt\n";
+    cout << "Create directory: " << folder << "\n";
+    exit(1);
+  }
+  else {
+    for (size_t i = 0; i < kinetics.reactions.size(); i++) {
+      if (kinetics.reactions.size() > 1000) {
+        if (i < 10)
+          file << "   " << i + 1 << " " << kinetics.reactions[i] << "\n";
+        if (i < 100)
+          file << "  " << i + 1 << " " << kinetics.reactions[i] << "\n";
+        if (i < 1000)
+          file << " " << i + 1 << " " << kinetics.reactions[i] << "\n";
+        else
+          file << i + 1 << " " << kinetics.reactions[i] << "\n";
+      } else if (kinetics.reactions.size() > 100) {
+        if (i < 10)
+          file << "  " << i + 1 << " " << kinetics.reactions[i] << "\n";
+        else if (i < 100)
+          file << " " << i + 1 << " " << kinetics.reactions[i] << "\n";
+        else
+          file << i + 1 << " " << kinetics.reactions[i] << "\n";
+      } else {
+        if (i < 10)
+          file << " " << i + 1 << " " << kinetics.reactions[i] << "\n";
+        else
+          file << i + 1 << " " << kinetics.reactions[i] << "\n";
+      }
+    }
+  }
+
+  file.close();
+
+  // Creating the file "qt_matrix.txt"
+  filename = folder + "/qt_matrix.txt";
+  file.open(filename.c_str());
+
+  if (!file.is_open()) {
+    cout << "Can't open the file: qt_matrix.txt\n";
+    cout << "Create directory: " << folder << "\n";
+    exit(1);
+  }
+  else {
+    for (int i = 0; i < kinetics.species.size(); i++) {
+      for (int j = 0; j < kinetics.reactions.size(); j++) {
+        file << kinetics.matrix(i, j) << "\t";
+      }
+      file << "\n";
+    }
+  }
+
+  file.close();
+
+  // Creating the file "qt_densities.txt"
+  filename = folder + "/qt_densities.txt";
+  file.open(filename.c_str());
+
+  if (!file.is_open()) {
+    cout << "Can't open the file: qt_densities.txt\n";
+    cout << "Create directory: " << folder << "\n";
+    exit(1);
+  }
+  else {
+    file << "   Time_s";
+    for (int i = 0; i < kinetics.species.size(); i++)
+      file << "\t" << i + 1;
+    file << "\n";
+
+    for (int i = 0; i < kinetics.time.getIndex1Size(); i++) {
+      file.setf(ios::scientific | ios::showpoint);
+      cout.precision(6);
+      file << kinetics.time(i);
+      for (int j = 0; j < kinetics.species.size(); j++) {
+        file << "\t" << kinetics.densities[i](j);
+      }
+      file << "\n";
+    }
+  }
+
+  file.close();
+
+  // Creating the file "qt_rates.txt"
+  filename = folder + "/qt_rates.txt";
+  file.open(filename.c_str());
+
+  if (!file.is_open()) {
+    cout << "Can't open the file: qt_rates.txt\n";
+    cout << "Create directory: " << folder << "\n";
+    exit(1);
+  }
+  else {
+    file << "   Time_s";
+    for (int i = 0; i < kinetics.reactions.size(); i++)
+      file << "\t" << i + 1;
+    file << "\n";
+
+    for (int i = 0; i < kinetics.time.getIndex1Size(); i++) {
+      file.setf(ios::scientific | ios::showpoint);
+      cout.precision(6);
+      file << kinetics.time(i);
+      for (int j = 0; j < kinetics.reactions.size(); j++) {
+        file << "\t" << kinetics.rates[i](j);
+      }
+      file << "\n";
+    }
+  }
+
+  file.close();
+
+  // Creating the file "qt_conditions.txt"
+  filename = folder + "/qt_conditions.txt";
+  file.open(filename.c_str());
+
+  if (!file.is_open()) {
+    cout << "Can't open the file: qt_conditions.txt\n";
+    cout << "Create directory: " << folder << "\n";
+    exit(1);
+  }
+  else {
+    file << "   Time_s";
+    for (int i = 0; i < 5; i++)
+      file << "\t" << i + 1;
+    file << "\n";
+
+    for (int i = 0; i < kinetics.time.getIndex1Size(); i++) {
+      file.setf(ios::scientific | ios::showpoint);
+      cout.precision(6);
+      file << kinetics.time(i);
+      file << "\t" << 0 << "\t" << 0 << "\t" << 0 << "\t" << 0 << "\t" << 0;
+      file << "\n";
+    }
+  }
+
+  file.close();
+}
 
 // Printing all pathways
 void Print_PATHS(const vector<pathway> &PATHS,
@@ -329,6 +526,8 @@ void Print_PATHS_reduce(const vector<pathway> &PATHS,
 // Print interactive reports
 void Print_Results(const vector<pathway> &PATHS,
                    const Rates           &rates,
+                   const In_data         &kinetics,
+                   string                &m_folder,
                    const vector<int>     &all_brenching_points)
 {
   if (interest < 0)
@@ -348,6 +547,7 @@ void Print_Results(const vector<pathway> &PATHS,
     cin >> new_interest;
 
     if (new_interest < 0) {
+      if (new_interest == -1000) Global_Kin__to_ZDPlasKin(kinetics, m_folder);
       more_interest = false;
     }
     else if (new_interest > rates.species.size()) {

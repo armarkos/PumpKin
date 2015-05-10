@@ -48,7 +48,7 @@ void Print_license()
     cout << "+++ Science Department, 1301 Beal Ave, Ann Arbor, MI 48109-2122          +++" << endl;
     cout << "+++ Email: armarkos@umich.edu                                            +++" << endl;
     cout << "+++ Tel: 734-647-4840                                                    +++" << endl;
-    cout << "+++ Homepage: http://markosyanaram.com                                   +++" << endl;
+    cout << "+++ Homepage: www.markosyanaram.com                                      +++" << endl;
     cout << "+++                                                                      +++" << endl;
     cout << "+++**********************************************************************+++" << endl;
 
@@ -57,7 +57,7 @@ void Print_license()
 
 // Reads input kinetic model
 void Read_kin(In_data      &kinetics,
-              const string &folder)
+              string       &folder)
 {
     string m_folder;
 
@@ -91,6 +91,8 @@ void Read_kin(In_data      &kinetics,
         if (folder.at(folder.size() - 1) == '/') m_folder = folder;
         else m_folder = folder + "/";
     }
+
+    folder = m_folder;
 
     string filename = m_folder + "input.txt";
     ifstream file(filename.c_str());
