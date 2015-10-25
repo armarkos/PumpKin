@@ -2,7 +2,7 @@
 //  PumpKin.cpp
 //  PumpKin
 //
-//  Version 1.2
+//  Version 1.4
 //
 //  Created by Aram H. Markosyan on 9/21/13.
 //  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
@@ -65,26 +65,13 @@ int main(int argc, const char *argv[])
     Initialize_PATHS(PATHS, kinetics, rates);
     Initialize_rates(PATHS, kinetics, rates);
 
-    // All brenching points SO FAR
+    // All brenching points so far
     vector<int> all_brenching_points;
-
-    //Print_PATHS(PATHS, rates);
 
     // Run baby, run!
     Run(PATHS, all_brenching_points, kinetics, rates);
 
-
-    // Print output
-    if (interest < 0) Print_PATHS(PATHS, rates);
-    else Print_PATHS_for_specie(PATHS, rates);
-
-
-    // Print_PATHS_for_specie(PATHS, rates);
-    // Print_PATHS(PATHS, rates);
-    // Print_PATHS_reduce(PATHS, rates, kinetics);
-
-
-    Print_report(PATHS, all_brenching_points);
+    Print_Results(PATHS, rates, kinetics, folder, all_brenching_points);
 
     return 0;
 }

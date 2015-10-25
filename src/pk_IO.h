@@ -2,7 +2,7 @@
 //  pk_IO.h
 //  PumpKin
 //
-//  Version 1.2
+//  Version 1.4
 //
 //  Created by Aram H. Markosyan on 9/21/13.
 //  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
@@ -44,7 +44,7 @@
 
 // Reads input kinetic model
 void Read_kin(In_data      &kinetics,
-              const string &folder);
+              string       &folder);
 
 // Reads the species from files
 void Read_species(In_data      &kinetics,

@@ -1,0 +1,63 @@
+\begin{thebibliography}{10}
+
+\bibitem{Capitelli2000/book}
+M~Capitelli, Ferreira~C. M., Gordiets~B. F., and Osipov~A. I.
+\newblock {\em {Plasma Kinetics in Atmospheric Gases}}.
+\newblock Springer Verlag, Berlin, Germany, 2000.
+
+\bibitem{Dorai2003/JPhD/1}
+R.~{Dorai} and M.~J. {Kushner}.
+\newblock {A model for plasma modification of polypropylene using atmospheric
+  pressure discharges}.
+\newblock {\em J. Phys. D}, 36:666, 2003.
+
+\bibitem{Dorai2002/JPD}
+Rajesh Dorai and Mark~J Kushner.
+\newblock Repetitively pulsed plasma remediation of no x in soot laden exhaust
+  using dielectric barrier discharges.
+\newblock {\em Journal of Physics D: Applied Physics}, 35(22):2954, 2002.
+
+\bibitem{Flitti2009/EPJAP}
+A.~{Flitti} and S.~{Pancheshnyi}.
+\newblock {Gas heating in fast pulsed discharges in N$_2$-O$_2$ mixtures}.
+\newblock {\em European Physical Journal Applied Physics}, 45(2):021001, 2009.
+
+\bibitem{Lehmann2004/JAC}
+R.~Lehmann.
+\newblock An algorithm for the determination of all significant pathways in
+  chemical reaction systems.
+\newblock {\em Journal of Atmospheric Chemistry}, 47(1):45--78, 2004.
+
+\bibitem{Qtplaskin}
+A.~Luque.
+\newblock {Computer code {Q}{P}laskin}.
+\newblock \url{http://www.trappa.es/content/software}.
+
+\bibitem{Glpk}
+A.~Makhorin.
+\newblock {GNU Linear Programming Kit, 4.9}.
+\newblock \url{http://www.gnu.org/software/glpk/}.
+
+\bibitem{Zdplaskin}
+S~Pancheshnyi, B.~Eismann, G.J.M. Hagelaar, and L.C. Pitchford.
+\newblock Computer code {Z}{D}{P}las{K}in ({U}niversity of {T}oulouse,
+  {L}{A}{P}{L}{A}{C}{E}, {C}{N}{R}{S}-{U}{P}{S}-{I}{N}{P}, {T}oulouse,
+  {F}rance, 2008).
+\newblock \url{http://www.zdplaskin.laplace.univ-tlse.fr}.
+
+\bibitem{Schuster1993refined}
+R.~Schuster and S.~Schuster.
+\newblock {Refined algorithm and computer program for calculating all
+  non-negative fluxes admissible in steady states of biochemical reaction
+  systems with or without some flux rates fixed}.
+\newblock {\em Computer applications in the biosciences: CABIOS}, 9(1):79--85,
+  1993.
+
+\bibitem{Schuster2002}
+S.~Schuster, C.~Hilgetag, J.H. Woods, and D.A. Fell.
+\newblock {Reaction routes in biochemical reaction systems: Algebraic
+  properties, validated calculation procedure and example from nucleotide
+  metabolism}.
+\newblock {\em Journal of Mathematical Biology}, 45(2):153--181, 2002.
+
+\end{thebibliography}

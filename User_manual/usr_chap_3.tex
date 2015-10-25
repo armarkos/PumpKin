@@ -70,6 +70,7 @@ Depending on whether the user has specified the \code{interest} parameter as a p
 
 \code{interest} $\leq 0$: \pump{} will output all the pathways (and their rates) sorted by rate. In some cases, this number can be very large, so we decided to limit it by 100, which of course can be easily changed inside the \pump{} source code. The output will also contain information such as the amount of a certain species that has been produced or consumed by the pathways that are deleted by \pump{} according to the parameters \code{f\_min} or \code{max\_path}. 
 
+After successful first run, \pump{} will ask user to enter a new species of interest. In this case, \pump{} will not perform any actual pathway analysis (and save a lot of time!), but only will print for a given input file (with a new species of interest) the production/ consumption of the new species of interest. User can type 0 to see the dominant pathways or a negative number to terminate execution.     
 
 
 

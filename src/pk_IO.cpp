@@ -2,7 +2,7 @@
 //  pk_IO.cpp
 //  PumpKin
 //
-//  Version 1.2
+//  Version 1.4
 //
 //  Created by Aram H. Markosyan on 9/21/13.
 //  Copyright (c) 2013 - 2015 Aram H. Markosyan. All rights reserved.
@@ -48,7 +48,7 @@ void Print_license()
     cout << "+++ Science Department, 1301 Beal Ave, Ann Arbor, MI 48109-2122          +++" << endl;
     cout << "+++ Email: armarkos@umich.edu                                            +++" << endl;
     cout << "+++ Tel: 734-647-4840                                                    +++" << endl;
-    cout << "+++ Homepage: http://markosyanaram.com                                   +++" << endl;
+    cout << "+++ Homepage: www.markosyanaram.com                                      +++" << endl;
     cout << "+++                                                                      +++" << endl;
     cout << "+++**********************************************************************+++" << endl;
 
@@ -57,7 +57,7 @@ void Print_license()
 
 // Reads input kinetic model
 void Read_kin(In_data      &kinetics,
-              const string &folder)
+              string       &folder)
 {
     string m_folder;
 
@@ -91,6 +91,8 @@ void Read_kin(In_data      &kinetics,
         if (folder.at(folder.size() - 1) == '/') m_folder = folder;
         else m_folder = folder + "/";
     }
+
+    folder = m_folder;
 
     string filename = m_folder + "input.txt";
     ifstream file(filename.c_str());
@@ -141,7 +143,7 @@ void Read_kin(In_data      &kinetics,
 void Read_species(In_data      &kinetics,
                   const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_species_list.txt";
@@ -211,13 +213,20 @@ void Read_species(In_data      &kinetics,
         n_S = kinetics.species.size();
         file.close();
     }
+
+    if ((interest > 0) && (n_S < interest))
+    {
+        cerr << "Error: The species of interet is not in your chemistry file." << endl;
+        cerr << "You have only " << n_S << " species." << endl;
+        exit(1);
+    }
 }
 
 // Reads the stoichiometric matrix from files
 void Read_matrix(In_data      &kinetics,
                  const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_matrix.txt";
@@ -351,7 +360,7 @@ bool Check_file_line(string &line)
 void Read_time(In_data      &kinetics,
                const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_conditions.txt";
@@ -445,7 +454,7 @@ void Read_time(In_data      &kinetics,
 void Read_density(In_data      &kinetics,
                   const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_densities.txt";
@@ -541,7 +550,7 @@ void Read_density(In_data      &kinetics,
 void Read_rates(In_data      &kinetics,
                 const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_rates.txt";
@@ -637,11 +646,11 @@ void Read_rates(In_data      &kinetics,
 void Read_reactions(In_data      &kinetics,
                     const string &m_folder)
 {
-    if (global_kin == NULL)
+    if (global_kin == false)
     {
         ifstream file;
         string filename_1 = m_folder + "qt_reactions_list.txt";
-        string filename_2 = m_folder + "QT_REACTION_LIST.TXT"; // In case of VAX/VMS Operating systems
+        string filename_2 = m_folder + "QT_REACTIONS_LIST.TXT"; // In case of VAX/VMS Operating systems
         ifstream file_1(filename_1.c_str());
         if (!file_1)
         {
@@ -679,7 +688,7 @@ void Read_reactions(In_data      &kinetics,
     else
     {
         ifstream file;
-        string filename_1 = m_folder + "pumpkin_reactions_list.txt";
+        string filename_1 = m_folder + "pumpkin_reaction_list.txt";
         string filename_2 = m_folder + "PUMPKIN_REACTION_LIST.TXT"; // In case of VAX/VMS Operating systems
         ifstream file_1(filename_1.c_str());
         if (!file_1)
@@ -829,12 +838,14 @@ void interp_1(doublearray1d               &interpol,
     if (t < T(0))
     {
         cout << "Error: Wrong time period: t_init is out of kinetic model's time bounds." << endl;
+        cout << "Time zero is: " << T(0) << "\n";
         exit (EXIT_FAILURE);
     }
 
     if (t > T(n_t - 1))
     {
         cout << "Error: Wrong time period: t_end is out of kinetic model's time bounds." << endl;
+        cout << "End time is: " << T(n_t - 1) << "\n";
         exit (EXIT_FAILURE);
     }
 
