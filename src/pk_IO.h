@@ -44,7 +44,7 @@
 
 // Reads input kinetic model
 void Read_kin(In_data      &kinetics,
-              const string &folder);
+              string       &folder);
 
 // Reads the species from files
 void Read_species(In_data      &kinetics,

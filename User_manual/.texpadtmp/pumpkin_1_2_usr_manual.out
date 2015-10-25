@@ -1,0 +1,25 @@
+\BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{1.1 System Requirements}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{2 Installation and Execution Instructions}{}% 3
+\BOOKMARK [1][-]{section.2.1}{2.1 Installation}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Unpackaing the Distribution File}{section.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Compiling the Package}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.3}{2.1.3 Execution Instructions}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.4}{2.1.4 Running Built-in Examples}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.5}{2.1.5 Typical Running Time}{section.2.1}% 9
+\BOOKMARK [0][-]{chapter.3}{3 Input and Output}{}% 10
+\BOOKMARK [1][-]{section.3.1}{3.1 Input}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.2}{3.2 Output}{chapter.3}% 12
+\BOOKMARK [0][-]{chapter.4}{4 Examples}{}% 13
+\BOOKMARK [1][-]{section.4.1}{4.1 ZDPlasKin Examples}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.2}{4.2 Global\137Kin Examples}{chapter.4}% 15
+\BOOKMARK [0][-]{chapter*.3}{ Acknowledgements}{}% 16
+\BOOKMARK [0][-]{appendix.A}{A PumpKin Algorithm}{}% 17
+\BOOKMARK [1][-]{section.A.1}{A.1 Basic Definitions}{appendix.A}% 18
+\BOOKMARK [1][-]{section.A.2}{A.2 Description of the Algorithm}{appendix.A}% 19
+\BOOKMARK [2][-]{subsection.A.2.1}{A.2.1 Initialization.}{section.A.2}% 20
+\BOOKMARK [2][-]{subsection.A.2.2}{A.2.2 Branching-Points.}{section.A.2}% 21
+\BOOKMARK [2][-]{subsection.A.2.3}{A.2.3 Merging Pathways.}{section.A.2}% 22
+\BOOKMARK [2][-]{subsection.A.2.4}{A.2.4 Deletion of Insignificant Pathways.}{section.A.2}% 23
+\BOOKMARK [2][-]{subsection.A.2.5}{A.2.5 Sub-Pathways.}{section.A.2}% 24
+\BOOKMARK [0][-]{appendix*.5}{GNU General Public License}{}% 25
