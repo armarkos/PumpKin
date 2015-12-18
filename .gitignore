@@ -1,5 +1,6 @@
-src/.idea/misc.xml
-src/.idea/modules.xml
-src/.idea/src.iml
-src/.idea/vcs.xml
-src/.idea/workspace.xml
+src/.idea/*
+src/CMakeFiles/*
+.idea/*
+src/CMakeCache.txt
+src/cmake_install.cmake
+src/Makefile
