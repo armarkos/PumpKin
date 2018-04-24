@@ -4,3 +4,5 @@ src/CMakeFiles/*
 src/CMakeCache.txt
 src/cmake_install.cmake
 src/Makefile
+User_manual/.texpadtmp
+PumpKin_xcode

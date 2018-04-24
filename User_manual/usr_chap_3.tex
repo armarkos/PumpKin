@@ -22,7 +22,7 @@ $S_i$ consumed) by reaction $R_j$,}
 \item{a time evolution of concentrations $c_i(t_l)$ and reactions rate $r_j(t_l)$, 
 where $l = 1, \ldots, n_T$ and $t_0 = t_1\leq\ldots \leq t_{n_T}=t_{end}$,}
 \end{itemize}
-The code is independent of the units chosen by the user.  Conventionally, $c_i(t_l)$ is specified in units of [molec. cm$^{-3}$] and $r_j$ in units of [molec. cm$^{-3}$ s$^{-1}$].
+The code is independent of the units chosen by the user.  Conventionally, $c_i(t_l)$ is specified in units of [mol cm$^{-3}$] and $r_j$ in units of [mol cm$^{-3}$ s$^{-1}$].
 
 \pump{} expects that user stores data in the following files:
 \begin{description}
@@ -50,7 +50,7 @@ where:
 \item{\code{max\_bp} - if positive, the maximum number of branching points considered, otherwise it is disregarded,}
 \item{\code{tau\_lifetime} - if positive, a lifetime threshold with units of [s], otherwise it is disregarded,}
 \item{\code{max\_path} - if positive, the maximum number of pathways considered per branching point treatment, i.e. only the first \code{max\_path} pathways with higher rate will be considered, otherwise it is disregarded,}
-\item{\code{f\_min} - if positive, pathway rate threshold in units of [molec. cm$^{-3}$$s^{-1}$], i.e. pathways with a rate smaller than \code{f\_min} will be deleted, otherwise it is disregarded.}
+\item{\code{f\_min} - if positive, pathway rate threshold in units of [mol cm$^{-3}$$s^{-1}$], i.e. pathways with a rate smaller than \code{f\_min} will be deleted, otherwise it is disregarded.}
 \item{\code{global\_kin} - boolean parameter. If \code{1} (or \code{true})} \pump{} will interpret the input files as from Global\_Kin, otherwise from ZDPlaskin.
 \end{itemize}
 \end{description}
