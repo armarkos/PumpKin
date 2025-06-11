@@ -116,17 +116,14 @@ The simplest way to build this package is:
   1. `cd' to the directory containing the package's source code:
   		$ cd pumpkin-X.Y/src
 
-  2. Type make to buid it:
-  		$ make
+  2. Install Dependencies (MacOS example)
+		$ brew install glpk
+  3. Building
+  		$ cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 .
+		$ make
 
 To run simple examples provided with package type:
 		$ ./pumpkin Examples/ZDPlasKin/Input_10
 		$ ./pumpkin Examples/ZDPlasKin/Input_20
 	or
 		$ ./pumpkin Examples/Global_Kin
-
-
-
-
-
-
